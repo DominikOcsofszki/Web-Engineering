@@ -1,9 +1,9 @@
 
 
 h1{
-color:red;
-text-align:center;
-	border:thin solid black;
+		color:red;
+		text-align:center;
+		border:thin solid black;
 }
 
 
@@ -11,4 +11,10 @@ body{
 
 		background-color:pink;
 
+}
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: DarkSalmon;
+  color: white;
 }
