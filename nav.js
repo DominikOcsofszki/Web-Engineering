@@ -5,11 +5,19 @@ const nav= `
 <a href="/noten.html" >Noten</a>    
 <a href="/zeit.html" >Zeit</a>
 ` ;
+// const foot= `
+//     <mine id="footer"> <footer>
+//     <p>© 2023 Dominik Ocsofszki</p>
+//     </footer></mine>
+// ` ;
+
 const foot= `
-    <mine id="footer"> <footer>
+    <footer>
     <p>© 2023 Dominik Ocsofszki</p>
-    </footer></mine>
+    </footer>
 ` ;
+
+
 window.addEventListener('DOMContentLoaded', () => {
     let barnav = document.querySelector('nav[role="navigation"]');
     barnav.innerHTML = nav;
