@@ -7,13 +7,17 @@ h1{
 	:hover { color: red }
 }
 
+a{
+	color:blue;
+}
+
 p{
 color:black;
   /* margin: 0 0.15em; */
 }
 
 body{
-	background-color:pink;
+	background-color:white;
 }
 img{
 	display:block;
