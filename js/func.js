@@ -8,33 +8,19 @@ const nav= `
 ` ;
 
 const foot= `
-    <footer>
-    <p>© 2023 Dominik Ocsofszki</p>
-    </footer>
+<footer>
+<p>© 2023 Dominik Ocsofszki</p>
+</footer>
 ` ;
 
-
-// window.addEventListener('DOMContentLoaded', () => {
-//     let barnav = document.querySelector('mine[role="nav"]');
-//     barnav.innerHTML = nav;
-// });
-
-
-
-// window.addEventListener('DOMContentLoaded', () => {
-//     let barnav = document.querySelector('mine[role="foot"]');
-//     barnav.innerHTML = foot;
-// }); 
-//
 function insertHTML(name,roleName) {
 
-window.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('DOMContentLoaded', () => {
         let bla = 'mine[role='+roleName+']'
-    let barnav = document.querySelector(bla);
-    // let barnav = document.querySelector('mine[role=foot]');
-    barnav.innerHTML = name;
-}); 
+        let barnav = document.querySelector(bla);
+        barnav.innerHTML = name;
+    }); 
 
 }
- insertHTML(foot, "foot");
- insertHTML(nav, "nav");
+insertHTML(foot, "foot");
+insertHTML(nav, "nav");

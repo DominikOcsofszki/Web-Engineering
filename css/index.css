@@ -1,32 +1,43 @@
 
 
 h1{
-		color:red;
-		text-align:center;
-		border:thin solid black;
-		:hover { color: red }
+	/* color:red; */
+	text-align:center;
+	border:thin solid black;
+	:hover { color: red }
 }
 
+p{
+color:black;
+  /* margin: 0 0.15em; */
+}
 
 body{
-
-		background-color:pink;
-
-}
-footer {
-		text-align: center;
-		padding: 0px;
-		background-color: DarkSalmon;
-		color: white;
+	background-color:pink;
 }
 img{
-		display:block;
-		margin-left:auto;
-		margin-right:auto;
-		[width="100"]
-}
-mine[role="nav"] {
-		display: flex;
-		justify-content: space-around;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	[width="100"]
 }
 
+mine[role="nav"] {
+	display: flex;
+	justify-content: space-around;
+}
+
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	/* background-color: DarkSalmon; */
+	text-align: center;
+	/* padding: 0px; */
+	font-family: 'Open Sans', sans-serif;
+}
+
+footer p {
+  margin: 0 0.15em;
+}
