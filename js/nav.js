@@ -19,7 +19,7 @@ const foot= `
 
 
 window.addEventListener('DOMContentLoaded', () => {
-    let barnav = document.querySelector('nav[role="navigation"]');
+    let barnav = document.querySelector('mine[role="navigation"]');
     barnav.innerHTML = nav;
 });  //(*1)
 
