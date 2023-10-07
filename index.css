@@ -25,3 +25,8 @@ img{
 		margin-right:auto;
 		[width="100"]
 }
+nav[role="navigation"] {
+		display: flex;
+		justify-content: space-around;
+}
+
