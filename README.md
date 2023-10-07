@@ -3,5 +3,5 @@
 
 
 # Helpful Links:
-		# // https://gomakethings.com/ditching-jquery/#get-html-from-another-page
+ https://gomakethings.com/ditching-jquery/#get-html-from-another-page
 
