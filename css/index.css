@@ -1,4 +1,5 @@
 
+	border:thin solid black;
 
 h1{
 	/* color:red; */
@@ -9,6 +10,7 @@ h1{
 
 a{
 	color:blue;
+	text-align: center;
 }
 
 p{
