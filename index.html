@@ -6,18 +6,61 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="/css/index.css">
 		<script src="/js/func.js"></script>
+		<style>
+#author {
+	animation-name: myframe;
+	animation-duration: 9s;
+	/* animation-delay: 2s; */
+	/* position:relativ; */
+  /* animation-iteration-count: 3; */
+  /* animation-iteration-count: infinite; */
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+	  /* animation: example 5s linear 2s infinite alternate; */
+}
+
+#author h1 {
+		color:white;
+	/* align:center; */
+	text-align: center;
+}
+
+@keyframes myframe {
+0%   {background-color:red; left:0px; top:0px;}
+19%   {background-color:white; left:0px; top:0px;}
+25%  {background-color:yellow; left:200px; top:0px;}
+50%  {background-color:blue; left:200px; top:200px;}
+75%  {background-color:green; left:0px; top:200px;}
+100% {background-color:red; left:0px; top:0px;}
+}
+
+}
+</style>
 	</head>
 	<body>
 		<mine role="nav"></mine>
 		<mine role="headline"></mine>
-		<li><a href="/Aufgaben/Aufgabe_1/Aufgabe_1.html"> Aufgabe 1</a></li>
-		<li><a href="/Aufgaben/Aufgabe_2/Aufgabe_2.html"> Aufgabe 2</a></li>
-		<a href="/random/gen.html"> gen.html </a>
 
-
-
+		<div id="author">
+			<h1> Dominik Ocsofszki </h1>
+		</div>
 		<mine role="foot"></mine>
 	</body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+<!-- <li><a href="/Aufgaben/Aufgabe_1/Aufgabe_1.html"> Aufgabe 1</a></li> -->
+<!-- <li><a href="/Aufgaben/Aufgabe_2/Aufgabe_2.html"> Aufgabe 2</a></li> -->
+<!-- <a href="/random/gen.html"> gen.html </a> -->
+
 

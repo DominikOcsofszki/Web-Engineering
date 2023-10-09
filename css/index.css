@@ -1,5 +1,5 @@
 
-	border:thin solid black;
+border:thin solid black;
 
 h1{
 	/* color:red; */
@@ -14,23 +14,27 @@ a{
 }
 
 p{
-color:black;
-  /* margin: 0 0.15em; */
+	color:black;
+	/* margin: 0 0.15em; */
 }
 
 body{
 	background-color:white;
 }
+
 img{
 	display:block;
 	margin-left:auto;
 	margin-right:auto;
-	[width="100"]
+	[width="100"];
+
 }
 
 mine[role="nav"] {
 	display: flex;
 	justify-content: space-around;
+	/* font-size: 30px; */
+
 }
 
 footer {
@@ -38,12 +42,20 @@ footer {
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	/* background-color: DarkSalmon; */
+	background-color: DarkSalmon;
 	text-align: center;
-	/* padding: 0px; */
+	padding: 0px;
 	font-family: 'Open Sans', sans-serif;
 }
 
 footer p {
-  margin: 0 0.15em;
+	margin: 0 0.15em;
+}
+
+a mine{
+	font-family: 'helvetica', sans-serif;
+	/* font-size: 30px; */
+}
+mine[role="foot"]  {
+	font-size: 1rem
 }
