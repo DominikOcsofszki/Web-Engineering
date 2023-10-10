@@ -1,5 +1,5 @@
 
-border:thin solid black;
+/* border:thin solid black; */
 
 h1{
 	/* color:red; */
@@ -57,5 +57,6 @@ a mine{
 	/* font-size: 30px; */
 }
 mine[role="foot"]  {
+
 	font-size: 1rem
 }

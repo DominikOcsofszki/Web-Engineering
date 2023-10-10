@@ -1,11 +1,11 @@
 
 
 const generate=`
-		<mine role="nav"></mine>
-		<mine role="headline"></mine>
-		<mine role="generate"></mine>
+<mine role="nav"></mine>
+<mine role="headline"></mine>
+<mine role="generate"></mine>
 
-		<mine role="foot"></mine>
+<mine role="foot"></mine>
 `
 
 
@@ -32,9 +32,9 @@ Einführung in Web Engineering
 
 function insertHTML(name,roleName) {
     window.addEventListener('DOMContentLoaded', () => {
-        let bla = 'mine[role='+roleName+']'
-        let barnav = document.querySelector(bla);
-        barnav.innerHTML = name;
+	let bla = 'mine[role='+roleName+']'
+	let barnav = document.querySelector(bla);
+	barnav.innerHTML = name;
     }); 
 }function insertAll() {
     insertHTML(generate, "generate")
