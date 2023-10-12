@@ -1,4 +1,10 @@
 #!/bin/zsh
+
+inputFile="$1"
+echo $inputFile
+outputFile=$inputFile.html
+echo $outputFile
+
 echo "<!DOCTYPE html>
 <html lang="en">
 	<html>
@@ -9,13 +15,16 @@ echo "<!DOCTYPE html>
 		</head>
 		<body>
 			<code>
-				<pre>" > final_html.html
+				<pre>" > $outputFile
+				# <pre>" > final_html.html
 
-cat Aufgabe_1.html | sd '&' '&amp;' | sd '<' '&lt;' | sd '>' '&gt;'  >> final_html.html 
+	cat $inputFile | sd '&' '&amp;' | sd '<' '&lt;' | sd '>' '&gt;'  >> $outputFile
+# cat Aufgabe_1.html | sd '&' '&amp;' | sd '<' '&lt;' | sd '>' '&gt;'  >> final_html.html 
 
 echo "			</pre>
 		</code>
 	</body>
-</html>" >> final_html.html
+</html>" >> $outputFile
+# </html>" >> final_html.html
 
-open final_html.html
+open $outputFile
