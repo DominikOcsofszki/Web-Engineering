@@ -7,4 +7,5 @@ WNH_LINKS="https://lea.hochschule-bonn-rhein-sieg.de/goto.php?target=crs_1072918
 
 
 
-cat InternOnly.txt | sd "\[WNH\]" "[<a href="$WNH_LINKS" >WNH</a>"  
+cat $1 | sd "\[WNH\]" "[<a href="$WNH_LINKS" >WNH]</a>"  
+# cat InternOnly.txt | sd "\[WNH\]" "[<a href="$WNH_LINKS" >WNH</a>"  

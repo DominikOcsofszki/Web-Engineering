@@ -2,5 +2,5 @@
 
 
 
-fd '.txt$' -x zsh enterLinksInWNH.sh {} 
-fd '.html$' -x zsh enterLinksInWNH.sh {} 
+fd '.txt$' -x zsh enterLinksInWNH.sh {} > NEW.html 
+fd '.html$' -x zsh enterLinksInWNH.sh {}  >> NEW.html
