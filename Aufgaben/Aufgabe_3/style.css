@@ -1,0 +1,49 @@
+html, body {
+    margin: 0;
+    height: 100%;
+     display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+   --height-red:30vh;
+   --padding-top-bottom:40px;
+   --padding-left-right:80px;
+}
+main {
+   display: flex;
+   padding: var(--padding-top-bottom) var(--padding-left-right);
+   /* padding: 40px 80px; */
+
+   flex-flow: wrap;
+   gap: 30px 20px;
+}
+
+#red {
+   background-color: red;
+   height: var(--height-red);
+   /* height: 30vh; */
+   flex: 1 100%;
+}
+
+#green {
+   background-color: lime;
+   height: calc(100vh - var(--height-red) - var(--padding-top-bottom));
+   /* height: calc(70vh - 30x); */
+   flex: 2;
+   /* flex: 1; */
+}
+
+#blue {
+   background-color: blue;
+   height: calc(100vh - var(--height-red) - var(--padding-top-bottom));
+   /* height: calc(70vh - 30px); */
+   flex: 6;
+}
+
+#lila {
+   background-color: magenta;
+   height: calc(100vh - var(--height-red) - var(--padding-top-bottom));
+   /* height: calc(70vh - 30px); */
+   flex: 2;
+   /* flex: 1; */
+}
+
