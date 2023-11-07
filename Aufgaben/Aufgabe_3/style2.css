@@ -1,0 +1,71 @@
+
+html, body {
+   margin: 0;
+   height: 100%;
+   /* display: grid;  */
+   min-height: 100vh;
+   /* flex-direction: column; */
+   --height-red:20vh;
+   --padding-top-bottom:40px;
+   --padding-left-right:80px;
+   }
+   main {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 6fr 1fr;
+      /* padding: var(--padding-top-bottom) var(--padding-left-right); */
+
+      /* gap: 30px 20px; */
+   }
+
+   #red {
+      background-color: red;
+      height: var(--height-red);
+      /* height: 30vh; */
+      grid-area:red;
+   }
+
+   #green {
+      background-color: lime;
+      grid-area:green;
+      /* height: calc(100vh - var(--height-red) - 2*var(--padding-top-bottom)); */
+   }
+
+   #blue {
+      background-color: blue;
+      grid-area:blue;
+      /* height: calc(100vh - var(--height-red) - 2*var(--padding-top-bottom)); */
+   }
+
+   #lila {
+      background-color: magenta;
+      grid-area:lila;
+      /* height: calc(100vh - var(--height-red) - 2*var(--padding-top-bottom)); */
+   }
+
+   @media (min-width: 576px) {
+      main {
+         display: grid;
+         grid-template-columns: 1fr 2fr;
+         grid-template-rows: 1fr 6fr 1fr;
+         grid-template-areas: 
+            "red red red" 
+            "green blue blue"
+            "lila lila lila"
+      }   }
+
+   @media (min-width: 768px) {
+
+       main {
+         display: grid;
+         grid-template-columns: 1fr 3fr 1fr;
+         grid-template-rows:  1fr 2fr;
+         grid-template-areas: 
+            "red red red red"
+            "green blue blue blue lila"
+            "green blue blue blue lila"
+
+      }   }
+
+
+
