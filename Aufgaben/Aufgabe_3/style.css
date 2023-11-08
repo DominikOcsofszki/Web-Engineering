@@ -18,17 +18,24 @@ nav {
   grid-template-areas:
     "  nav nav nav nav ";
   padding: 20px;
+  justify-content: space-evenly;
 }
+
 
 main {
   display: grid;
-  grid-template-areas: " img-side main-text";
+  grid-template-areas:
+    " img-side"
+    " main-text";
+    text-align: center;
+
 }
 
 #main-article {
-display: grid;
-justify-self: center;
+  display: grid;
+  justify-self: center;
   margin-right: 10rem;
+  text-align: center;
 }
 
 #img-around {
@@ -68,31 +75,13 @@ footer {
   padding: 3rem;
 }
 
-@media (min-width: 1768px) {
-  .container {
-    grid-template-areas:
-      "nav"
-      "header"
-      "content"
-      "side"
-      "footer";
-
-    grid-template-columns: 1fr;
-    grid-template-rows:
-      /* auto /* Header */
-      minmax(75px, auto)
-      /* Nav */
-      1fr
-      /* Content */
-      minmax(75px, auto)
-      /* Sidebar */
-      auto;
-    /* Footer */
+@media (min-width: 750px) {
+  main {
+    display: grid;
+    grid-template-areas: " img-side main-text";
+    margin-right: 10rem;
+    text-align: center;
+  
   }
 
-  /* nav, */
-  /* aside { */
-  /*   margin: 0; */
-  /**/
-  /* } */
 }
