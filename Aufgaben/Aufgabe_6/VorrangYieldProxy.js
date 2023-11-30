@@ -12,6 +12,15 @@ class Vorrang {
     }
   }
 }
+// const target = {};
+const handler = {
+  get(receiver, name) {
+    return `Hello, ${name}!`;
+  }
+};
+
+const p = new Proxy(Vorrang, handler);
+p.world === 'Hello, world!';
 
 const testArray = [["schlafen", "studieren"], ["essen", "studieren"], ["studieren", "prüfen"]]
 
