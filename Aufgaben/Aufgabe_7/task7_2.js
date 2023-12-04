@@ -292,6 +292,12 @@ splitText.forEach(word => {
         wordMap.set(word, wordMap.get(word) + 1);
     }
 })
+
+// splitText.filter(word => !stopWords.includes(word)).map(
+//     wordMap.set(word, wordMap.get(word) || 0);
+// wordMap.set(word, wordMap.get(word) + 1);
+// )
+
 console.log(wordMap.size)
 
 const mapSortValues = [...wordMap].sort((b, a) => a[1] - b[1]);
