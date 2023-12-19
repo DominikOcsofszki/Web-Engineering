@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- <script src="task9_2.js" defer></script> -->
+        <!-- <link rel="stylesheet" href="task9_2.css" type="text/css"> -->
+        <!-- <link rel="stylesheet" href="styles.css"> -->
+        <meta charset="utf-8">
+        <title>SVG</title>
+        <style>
+        .board {
+            width: 300px;
+            height: 300px;
+            background-color: #eee;
+        }
+
+        .cell {
+            fill: #fff;
+            stroke: #000;
+            stroke-width: 2px;
+        }
+
+        .x-item {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .o-item {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        </style>
+    </head>
+
+    <body>
+        <svg class="board" viewBox="0 0 300 300">
+            <rect id="x1" class="cell" x="0" y="0" width="100" height="100" />
+            <rect id="x2" class="cell" x="100" y="0" width="100" height="100" />
+            <rect id="x3" class="cell" x="200" y="0" width="100" height="100" />
+            <rect id="x4" class="cell" x="0" y="100" width="100" height="100" />
+            <rect id="x5" class="cell" x="100" y="100" width="100" height="100" />
+            <rect id="x6" class="cell" x="200" y="100" width="100" height="100" />
+            <rect id="x7" class="cell" x="0" y="200" width="100" height="100" />
+            <rect id="x8" class="cell" x="100" y="200" width="100" height="100" />
+            <rect id="x9" class="cell" x="200" y="200" width="100" height="100" />
+        </svg>
+        <!-- </svg> -->
+        <!-- <svg class="X" viewBox="0,0,100,100" -->
+        <!--     <text x="0%" y="0" font-size="15" text-anchor="middle" fill="blue">Use</text> -->
+        <!--     <!-- <circle cx="50" cy="50" r="50" fill="green" /> --> -->
+        <!--       <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" /> -->
+        <!---->
+        <!---->
+        <!---->
+        <!-- <svg class="x-item" viewBox="0 0 100 100"> -->
+        <!--     <circle fill="black" cx="50" cy="50" r="50" /> -->
+        <!-- </svg> -->
+        <!-- <svg class="o-item" viewBox="0 0 100 100"> -->
+        <!--     <line stroke="black " stroke-width="3" stroke-wid x1="0" y1="0" x2="100" y2="100" /> -->
+        <!--     <line stroke="black " stroke-width="3" stroke-wid x1="100" y1="0" x2="0" y2="100" /> -->
+        <!-- </svg> -->
+
+
+
+        <script>const x1 = document.getElementById("x1");
+        const x2 = document.getElementById("x2");
+        const x3 = document.getElementById("x3");
+        const x4 = document.getElementById("x4");
+        const x5 = document.getElementById("x5");
+        const x6 = document.getElementById("x6");
+        const x7 = document.getElementById("x7");
+        const x8 = document.getElementById("x8");
+        const x9 = document.getElementById("x9");
+        let count = 0;
+
+        const arr = [];
+        winningPatterns = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
+            [0, 4, 8], [2, 4, 6]
+        ]
+            function checkForWin() {
+            for (let pattern of winningPatterns) {
+                const [a, b, c] = pattern;
+                if (arr[a] !== undefined && arr[a] === arr[b] && arr[b] === arr[c]) {
+                    alert("Player " + arr[a] + " wins!");
+                    return true;
+                }
+            }
+            return false;
+        }
+        console.log(x9);
+        x1.setAttribute("onclick", "change(this,count)");
+        x2.setAttribute("onclick", "change(this,count)");
+        x3.setAttribute("onclick", "change(this,count)");
+        x4.setAttribute("onclick", "change(this,count)");
+        x5.setAttribute("onclick", "change(this,count)");
+        x6.setAttribute("onclick", "change(this,count)");
+        x7.setAttribute("onclick", "change(this,count)");
+        x8.setAttribute("onclick", "change(this,count)");
+        x9.setAttribute("onclick", "change(this,count)");
+        function change(x, playerNr) {
+            const isXturn = count % 2 == 0;
+            const useXorO = isXturn ? "X" : "O";
+            console.log(useXorO);
+            if (x.innerHTML == "") {
+                count++;
+                x.innerHTML = useXorO;
+                x.style.fill = isXturn ? "red" : "green";
+                x.svg = ""
+                const str = x.id
+                checkIfWins(str.substring(1), useXorO);
+            } else {
+                alert("Feld ist schon belegt!");
+            }
+        }
+        function checkIfWins(nr, XorO){
+            arr[nr] = XorO;
+            console.log(arr)
+            checkForWin();
+        }
+
+        </script>
+    </body>
+
+</html>
