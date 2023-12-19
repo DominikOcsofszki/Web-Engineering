@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
+    </head>
+    <body>
+        <svg class="chart"></svg>
+
+        <script>
+
+        fetch("./data.xml").then((result) => {
+            console.log(result);
+            result.text().then(function (result) {
+                const xml = new DOMParser().parseFromString(result, "text/xml");
+                console.log(xml)
+                })
+                })
+  
+     </script>
+    </body>
+</html>
