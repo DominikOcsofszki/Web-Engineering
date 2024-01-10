@@ -292,7 +292,7 @@ splitText.forEach(word => {
         wordMap.set(word, wordMap.get(word) + 1);
     }
 })
-
+//ToDo: 
 // splitText.filter(word => !stopWords.includes(word)).map(
 //     wordMap.set(word, wordMap.get(word) || 0);
 // wordMap.set(word, wordMap.get(word) + 1);

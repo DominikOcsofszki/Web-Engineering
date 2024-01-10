@@ -1,6 +1,6 @@
 import { topoSort } from "./topoSort.js";
 
-class Vorrang {
+export class Vorrang {
   constructor(arr) {
     this.arr = arr;
   }

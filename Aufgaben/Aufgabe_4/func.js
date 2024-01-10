@@ -9,24 +9,24 @@ function identity_function(x) {
 function add(x, y) {
     return x + y;
 }
-function mul (x,y) {
+function mul(x, y) {
     return x * y;
 }
 
 function addf2(x) {
-    y_id = identity(y)   
+    y_id = identity(y)
     return x_id + x;
 }
 
 function addf(x) {
-    return function(y) {
+    return function (y) {
         return x + y;
     }
 }
 function applyf(f) {
-    return function(a){
-        return function(b){
-            return f(a,b);
+    return function (a) {
+        return function (b) {
+            return f(a, b);
         }
     }
 }
