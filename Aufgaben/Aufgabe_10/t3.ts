@@ -6,7 +6,6 @@ async function fetchMarktdaten(): Promise<any[]> {
 	return data;
 }
 function calculateMinimum(data: number[]): number {
-	// return kath.min(...data);
 	return Math.min(...data);
 }
 
@@ -27,7 +26,6 @@ async function main() {
 	Deno.serve(async (_request: Request) => {
 		console.log("Server läuft auf http://localhost:8000");
 
-		// number has to be extracted from marktdaten or rewritten...
 		const data = await fetchMarktdaten();
 		const marktdaten = data.map((entry: any) => entry.wind_onshore);
 
