@@ -9,9 +9,6 @@ fetch('/nav.html')
     })
 
 
-
-
-
 function setUpNavFunctions() {
     const toggleButton = document.getElementById('toggle-button');
     const navbar = document.getElementById('navbar');
