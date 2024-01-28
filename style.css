@@ -8,13 +8,14 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px; /* Set the width of the navigation bar */
+    /*width: 200px; !* Set the width of the navigation bar *!*/
     height: 100vh;
     background-color: #333;
-    padding: 20px;
+    padding: 1px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    opacity: 0.95;
 }
 
 .menu {
@@ -46,7 +47,7 @@
     display: none;
     background-color: #333;
     padding: 10px;
-    min-width: 200px;
+    /*min-width: 200px;*/
 }
 
 .submenu li {

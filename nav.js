@@ -5,10 +5,13 @@ fetch('/nav.html')
         let newelem = document.createElement("div");
         newelem.innerHTML = text;
         oldelem.parentNode.replaceChild(newelem, oldelem);
-        setUpNav();
+        setUpNavFunctions();
     })
 
-function setUpNav() {
+
+
+
+function setUpNavFunctions() {
     const toggleButton = document.getElementById('toggle-button');
     const navbar = document.getElementById('navbar');
     // navbar.addEventListener('mouseenter', openNav);
