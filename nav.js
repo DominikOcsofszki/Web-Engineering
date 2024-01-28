@@ -11,19 +11,28 @@ fetch('/nav.html')
 
 
 
+
 function setUpNavFunctions() {
     const toggleButton = document.getElementById('toggle-button');
     const navbar = document.getElementById('navbar');
     // navbar.addEventListener('mouseenter', openNav);
     const links = navbar.querySelectorAll('a');
+    const longestEntry = getLongestMenuEntryWidth(links);
 
     navbar.addEventListener('mouseenter', function () {
-        const longestEntry = getLongestMenuEntryWidth(links);
-        navbar.style.width = `${longestEntry}px`;
+        navbar.style.width = `${longestEntry + 5}px`;
+        navbar.style.transition = 'width 0.2s ease-in-out';
+        links.forEach(link => {
+            link.style.opacity = '1';
+        });
     });
+
 
     navbar.addEventListener('mouseleave', function () {
         navbar.style.width = '0px';
+        links.forEach(link => {
+            link.style.opacity = '0';
+        });
     });
 
     function getLongestMenuEntryWidth(links) {

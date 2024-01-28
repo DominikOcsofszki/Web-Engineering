@@ -1,14 +1,13 @@
-/* Reset default margin and padding */
 * {
     margin: 0;
     padding: 0;
 }
 
 .sidenav {
+    --var-biggest-size: 100px;
     position: fixed;
     top: 0;
     left: 0;
-    /*width: 200px; !* Set the width of the navigation bar *!*/
     height: 100vh;
     background-color: #333;
     padding: 1px;
@@ -26,21 +25,23 @@
 }
 
 .menu li {
+    position: relative; /* Add position relative */
+
     margin-bottom: 10px;
 }
 
 .menu li:hover .submenu {
     display: block;
     opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transition properties */
+    transform: translateX(-100%); /* Change translateY to translateX */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
-
 
 
 .menu li a {
     color: #fff;
     text-decoration: none;
+    opacity: 1;
 }
 
 .submenu {
@@ -48,6 +49,10 @@
     background-color: #333;
     padding: 10px;
     /*min-width: 200px;*/
+    /*position: absolute; !* Add position absolute *!*/
+    top: 0;
+    /*right: -30px; !* Set the desired distance from the parent menu item *!*/
+    /*right: calc(-1 * (var(--var-biggest-size) + 10px)); !* Set the desired distance from the parent menu item *!*/
 }
 
 .submenu li {
