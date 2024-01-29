@@ -1,63 +1,126 @@
+/* Reset default margin and padding */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* Style the navigation bar */
 .sidenav {
-    --var-biggest-size: 100px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    background-color: #333;
-    padding: 1px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    opacity: 0.95;
+  height: 100%;
+  width: 250px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
 }
 
-.menu {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    margin-top: 20px;
+/* Style the navigation bar links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
 }
 
-.menu li {
-    position: relative; /* Add position relative */
-
-    margin-bottom: 10px;
+/* Change the color on hover */
+.sidenav a:hover {
+  color: #f1f1f1;
 }
 
-.menu li:hover .submenu {
-    display: block;
-    opacity: 1;
-    transform: translateX(100%); /* Change translateY to translateX */
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+/* Style the submenus */
+.sidenav .submenu {
+  padding-left: 150;
 }
 
-
-.menu li a {
-    color: #fff;
-    text-decoration: none;
-    opacity: 1;
+/* Show the submenus when hovering over the parent menu item */
+.sidenav .submenu {
+  display: none;
 }
 
-.submenu {
-    display: none;
-    background-color: #333;
-    padding: 10px;
-    top: 0;
-    /*right: -30px; !* Set the desired distance from the parent menu item *!*/
-    /*right: calc(-1 * (var(--var-biggest-size) + 10px)); !* Set the desired distance from the parent menu item *!*/
+.sidenav a:hover + .submenu,
+.sidenav .submenu:hover {
+  display: block;
+}
+/* Position the submenus to the right of the parent item */
+.sidenav .menu li {
+  position: relative;
 }
 
-/*.submenu li {*/
-/*    margin-bottom: 0px;*/
-/*}*/
+.sidenav .menu li .submenu {
+  display: none;
+  position: absolute;
+  top: 0;
+  /* left: 100%; /* Position the submenu to the right of the parent item */ */
+}
 
-/*.submenu li:last-child {*/
-/*    margin-bottom: 0;*/
-/*}*/
-
+.sidenav .menu li:hover .submenu {
+  display: block;
+}
+/* * { */
+/*     margin: 0; */
+/*     padding: 0; */
+/* } */
+/**/
+/* .sidenav { */
+/*     --var-biggest-size: 100px; */
+/*     position: fixed; */
+/*     top: 0; */
+/*     left: 0; */
+/*     height: 100vh; */
+/*     background-color: #333; */
+/*     padding: 1px; */
+/*     display: flex; */
+/*     flex-direction: column; */
+/*     align-items: flex-start; */
+/*     opacity: 0.95; */
+/* } */
+/**/
+/* .menu { */
+/*     display: flex; */
+/*     flex-direction: column; */
+/*     list-style: none; */
+/*     margin-top: 20px; */
+/* } */
+/**/
+/* .menu li { */
+/*     position: relative; /* Add position relative */ */
+/**/
+/*     margin-bottom: 10px; */
+/* } */
+/**/
+/* .menu li:hover .submenu { */
+/*     display: block; */
+/*     opacity: 1; */
+/*     transform: translateX(100%); /* Change translateY to translateX */ */
+/*     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; */
+/* } */
+/**/
+/**/
+/* .menu li a { */
+/*     color: #fff; */
+/*     text-decoration: none; */
+/*     opacity: 1; */
+/* } */
+/**/
+/* .submenu { */
+/*     display: none; */
+/*     background-color: #333; */
+/*     padding: 10px; */
+/*     top: 0; */
+/*     /*right: -30px; !* Set the desired distance from the parent menu item *!*/ */
+/*     /*right: calc(-1 * (var(--var-biggest-size) + 10px)); !* Set the desired distance from the parent menu item *!*/ */
+/* } */
+/**/
+/* /*.submenu li {*/ */
+/* /*    margin-bottom: 0px;*/ */
+/* /*}*/ */
+/**/
+/* /*.submenu li:last-child {*/ */
+/* /*    margin-bottom: 0;*/ */
+/* /*}*/ */
+/**/

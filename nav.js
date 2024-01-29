@@ -5,7 +5,7 @@ fetch('/nav.html')
         let newelem = document.createElement("div");
         newelem.innerHTML = text;
         oldelem.parentNode.replaceChild(newelem, oldelem);
-        setUpNavFunctions();
+        // setUpNavFunctions();
     })
 
 
