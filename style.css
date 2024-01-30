@@ -1,43 +1,43 @@
-/* Reset default margin and padding */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Style the navigation bar */
 .sidenav {
   height: 100%;
-  width: 250px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
+  width: 250px; 
+  position: fixed;
+  z-index: 1; 
+  top: 0; 
   left: 0;
-  background-color: #111; /* Black */
-  overflow-x: hidden; /* Disable horizontal scroll */
+  background-color: #111; 
+  overflow-x: hidden; 
   padding-top: 20px;
 }
 
-/* Style the navigation bar links */
 .sidenav a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #333;
+  /* color: #818181; */
   display: block;
 }
 
-/* Change the color on hover */
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: white;
+  transform: scale(1.2);
+  transition: transform .5s; 
+  padding-left:50px
+
+
 }
 
-/* Style the submenus */
 .sidenav .submenu {
-  padding-left: 150;
+  /* padding-left: 150; */
 }
 
-/* Show the submenus when hovering over the parent menu item */
 .sidenav .submenu {
   display: none;
 }
@@ -46,7 +46,6 @@
 .sidenav .submenu:hover {
   display: block;
 }
-/* Position the submenus to the right of the parent item */
 .sidenav .menu li {
   position: relative;
 }
@@ -55,7 +54,7 @@
   display: none;
   position: absolute;
   top: 0;
-  /* left: 100%; /* Position the submenu to the right of the parent item */ */
+  padding-left: 100px;
 }
 
 .sidenav .menu li:hover .submenu {

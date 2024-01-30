@@ -5,7 +5,7 @@ fetch('/nav.html')
         let newelem = document.createElement("div");
         newelem.innerHTML = text;
         oldelem.parentNode.replaceChild(newelem, oldelem);
-        // setUpNavFunctions();
+        setUpNavFunctions();
     })
 
 
@@ -16,24 +16,24 @@ function setUpNavFunctions() {
     const links = navbar.querySelectorAll('a');
     const longestEntry = getLongestMenuEntryWidth(links);
 
-    navbar.addEventListener('mouseenter', function () {
-        navbar.style.width = `${longestEntry + 5}px`;
-        navbar.style.transition = 'width 0.2s ease-in-out';
+    navbar.style.transition = 'width 0.2s ease-in-out';
+    navbar.addEventListener('mouseenter', function() {
+        navbar.style.width = `250px`;
+        // navbar.style.width = `${longestEntry + 5}px`;
         links.forEach(link => {
             link.style.opacity = '1';
         });
     });
 
 
-    navbar.addEventListener('mouseleave', function () {
-        navbar.style.width = '0px';
+    navbar.addEventListener('mouseleave', function() {
+        navbar.style.width = '1px';
         links.forEach(link => {
             link.style.opacity = '0';
         });
     });
 
     function getLongestMenuEntryWidth(links) {
-        console.log(links);
         let maxWidth = 0;
         links.forEach(link => {
             const width = link.offsetWidth;
@@ -41,6 +41,7 @@ function setUpNavFunctions() {
                 maxWidth = width;
             }
         });
+        console.log(maxWidth)
         return maxWidth;
     }
 
