@@ -105,7 +105,12 @@ code {
 .sidenav .menu li:hover .submenu {
     display: block;
 }
-
+textarea {
+    padding: 10px;
+  width: 50%;
+  height: 90vh;
+  background: #FF90;
+}
 /* * { */
 /*     margin: 0; */
 /*     padding: 0; */
@@ -134,7 +139,6 @@ code {
 /**/
 /* .menu li { */
 /*     position: relative; /* Add position relative */
-*/
 /**/
 /*     margin-bottom: 10px; */
 /* } */
@@ -143,7 +147,6 @@ code {
 /*     display: block; */
 /*     opacity: 1; */
 /*     transform: translateX(100%); /* Change translateY to translateX */
-*/
 /*     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; */
 /* } */
 /**/
@@ -160,22 +163,5 @@ code {
 /*     padding: 10px; */
 /*     top: 0; */
 /*     /*right: -30px; !* Set the desired distance from the parent menu item *!*/
-*/
 /*     /*right: calc(-1 * (var(--var-biggest-size) + 10px)); !* Set the desired distance from the parent menu item *!*/
-*/
-/* } */
-/**/
-/* /*.submenu li {*/
-*/
-/* /*    margin-bottom: 0px;*/
-*/
-/* /*}*/
-*/
-/**/
-/* /*.submenu li:last-child {*/
-*/
-/* /*    margin-bottom: 0;*/
-*/
-/* /*}*/
-*/
-/**/
+

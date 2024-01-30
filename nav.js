@@ -11,18 +11,6 @@ function fetchNavHtml() {
 }
 
 fetchNavHtml();
-// fetch('/nav.html')
-//     .then(res => res.text())
-//     .then(text => {
-//         let oldelem = document.querySelector("script#replace_with_navbar");
-//         let newelem = document.createElement("div");
-//         newelem.innerHTML = text;
-//         oldelem.parentNode.replaceChild(newelem, oldelem);
-//         setUpNavFunctions();
-//     })
-//
-
-
 
 
 function setUpNavFunctions() {
@@ -42,7 +30,7 @@ function setUpNavFunctions() {
             { transform: 'scale(1.5)' },
             { transform: 'rotate(360deg)' }
         ],
-            {duration:5000, iterations:10}
+            {duration:5000, iterations:1}
 
         )
     })
@@ -73,27 +61,8 @@ function setUpNavFunctions() {
         });
                 logoInsideNav.style.opacity = '1'
 
-        // logo.style.opacity = '0.1';
-        // logo.style.transform = 'translateX(-1200%);scale(2.0)';
-                // logo.style.transform = "scale(2.0)";
-        // logo.animate([
-        //     { transform: 'translateX(-1500px) rotate(0deg) scale(3)' },
-        //     { transform: 'translateX(0) rotate(360deg)' },
-        // ],
-        //     {duration:2000, iterations:1})
-
     });
-    // #logo-svg {
-    //  opacity: 1;
-    //  z-index: -1;
-    //  position:absolute;
-    //  width: 100px;
-    //  height: 100px;
-    //  /* transform: scale(0.1); */
-    //  right: 0;
-    //  top:0;
-    // }
-    //
+
     navbar.addEventListener('mouseleave', function() {
         navbar.style.width = '1px';
         links.forEach(link => {
@@ -227,11 +196,11 @@ function fetchCodeAndShow(key) {
                 transformedCodeText = text;
                 let oldelem = document.querySelector("html");
                 let newelem = document.createElement("html");
+                transformedCodeText = transformCodeToHTML(text);
                 newelem.innerHTML = transformedCodeText;
 
                 oldelem.parentNode.replaceChild(newelem, oldelem);
                 // } if (key === 'F2') {
-                //     transformedCodeText = transformCodeToHTML(text);
             } else {
                 transformedCodeText = text;
                 let oldelem = document.querySelector("body");
@@ -240,7 +209,7 @@ function fetchCodeAndShow(key) {
 
                 oldelem.parentNode.replaceChild(newelem, oldelem);
             }
-            fetchNavHtml()
+            // fetchNavHtml()
             // }
 
 

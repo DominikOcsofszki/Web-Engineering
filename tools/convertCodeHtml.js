@@ -1,3 +1,43 @@
+const htmlCode =`<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+    <script id="replace_with_navbar" src="/nav.js"></script>
+
+<div class="codepen">
+
+  <section class="code">
+    <div class="editor">
+      <header class="editor__header">
+        <h3 class="editor__heading">HTML</h3>
+        <button>⌄</button>
+      </header>
+      <div class="editor__code">
+        <textarea class="editor__input">
+
+`
+const htmlCodeEnd = `
+            
+        </textarea>
+      </div>
+    </div>
+    </div>
+
+  </section>
+
+</div>
+</body>
+
+</html>
+`
+
+
 const fs = require('fs');
 
 function transformCodeToHTML(inputFile) {
@@ -9,7 +49,6 @@ function transformCodeToHTML(inputFile) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${inputFile}</title>
-  <style>body {background: white; font-size: 10px;}</style>
 </head>
 <body>
   <code>
@@ -26,10 +65,10 @@ function transformCodeToHTML(inputFile) {
 </body>
 </html>`;
 
-  const fullContent = htmlContent + inputContent + closingTags;
+  // const fullContent = htmlContent + inputContent + closingTags;
+  const fullContent = htmlCode + inputContent + htmlCodeEnd;
 
   fs.writeFileSync(outputFile, fullContent);
-  console.log(`Generated ${outputFile}`);
 }
 
 const inputFile = process.argv[2];
