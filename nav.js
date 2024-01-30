@@ -38,7 +38,8 @@ function setUpNavFunctions() {
     logo.style.animationDuration = '1'
     logo.style.animationName = 'example'
     logo.addEventListener('click', function() {
-        fetchCodeAndShow();
+        // fetchCodeAndShow();
+        fetchCodeAndShowNew();
     })
     window.addEventListener('keydown', function(event) {
         const keyPressed = event.key.toString(); // "a", "1", "Shift", etc.
@@ -255,3 +256,57 @@ function transformCodeToHTML(textInput) {
     return output;
 }
 
+function fetchCodeAndShowNew(key) {
+    // fetch('/showcode')
+    const path = window.location.pathname;
+    fetch(path)
+        .then(res => res.text())
+        // .then(res => res.text())
+        .then(htmlText => {
+
+            const domParser = new DOMParser();
+            const doc = domParser.parseFromString(htmlText, "text/html");
+            console.log(doc.scripts);
+            console.log(doc.html);
+            console.log(doc.body);
+
+                 let oldelem = document.querySelector("body");
+                // let newelem = document.createElement("body");
+                // newelem.innerHTML = transformedCodeText;
+                //
+                // oldelem.parentNode.replaceChild(newelem, oldelem);
+                oldelem.parentNode.replaceChild(doc.body, oldelem);
+    document.addEventListener("DOMContentLoaded", function() {
+      // Your JavaScript code here
+      console.log("JavaScript code after body replacement");
+    });
+            // [...doc.scripts].forEach(eval)
+
+            let transformedCodeText;
+            // if (key === 'F1') {
+            //     transformedCodeText = text;
+            //     let oldelem = document.querySelector("html");
+            //     let newelem = document.createElement("html");
+            //     transformedCodeText = transformCodeToHTML(text);
+            //     newelem.innerHTML = transformedCodeText;
+            //
+            //     oldelem.parentNode.replaceChild(newelem, oldelem);
+            //     // } if (key === 'F2') {
+            // } else {
+            //     transformedCodeText = doc.body;
+            //     // transformedCodeText = text;
+            //     let oldelem = document.querySelector("body");
+            //     let newelem = document.createElement("body");
+            //     newelem.innerHTML = transformedCodeText;
+            //
+            //     oldelem.parentNode.replaceChild(newelem, oldelem);
+            //     oldelem.parentNode.replaceChild(doc.body, oldelem);
+            // }
+            // fetchNavHtml()
+            // }
+
+
+            console.log("correct functions")
+            // setUpNavFunctions();
+        })
+}
