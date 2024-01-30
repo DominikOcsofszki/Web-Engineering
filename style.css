@@ -5,8 +5,9 @@ margin: 0;
 }
 @keyframes example {
   0%   {background-color:red;}
- 50% {transform: rotate(180deg);transform: translateX(250%);}
- 100% {transform: rotate(360deg);transform: translateX(500%);}
+ /* 50% {transform: rotate(180deg);transform: translateX(250%);} */
+ 50% {transform: rotate(180deg);}
+ 100% {transform: rotate(360deg);}
 }
 #logo-svg {
     opacity: 1;
@@ -15,10 +16,11 @@ margin: 0;
     width: 100px;
     height: 100px;
     /* transform:  */
-    left: 0;
+    right: 0;
     top: 70px;
-    transform: translateX(500%);
-    transform: scale(1.5);
+    opacity: 0;
+    /* transform: translateX(-500%); */
+    /* transform: scale(1.5); */
     /* Change translateY to translateX */
     transition: opacity 1.3s ease-in-out, transform 1.3s ease-in-out;
       /* animation-name: example; */
