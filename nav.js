@@ -18,6 +18,9 @@ function setUpNavFunctions() {
 
 
     const logo = document.getElementById('logo-svg');
+    logo.addEventListener('click', function() {
+        fetchCodeAndShow();
+    })
 
     navbar.style.transition = 'width 0.2s ease-in-out';
     navbar.addEventListener('mouseenter', function() {
@@ -49,9 +52,7 @@ function setUpNavFunctions() {
             link.style.opacity = '0';
         });
         logo.style.opacity = '1';
-        // logo.style.transform = 'translateX(1000%)';
-               logo.style.animationName= example; 
-
+        logo.style.transform = 'translateX(1000%)';
 
     });
 
@@ -68,3 +69,29 @@ function setUpNavFunctions() {
     }
 
 }
+
+function fetchCodeAndShow() {
+fetch('/Aufgaben/Aufgabe_1/')
+    .then(res => res.text())
+    .then(text => {
+        const transformedCodeText = transformCodeToHTML(text);
+        let oldelem = document.querySelector("body");
+        let newelem = document.createElement("body");
+        newelem.innerHTML = transformedCodeText;
+        // newelem.innerHTML = text;
+        oldelem.parentNode.replaceChild(newelem, oldelem);
+        // setUpNavFunctions();
+    })
+}
+
+function transformCodeToHTML(textInput) {
+    console.log(textInput);
+    textInput = textInput.replace(/&/g, '&amp;');
+    textInput = textInput.replace(/</g, '&lt;');
+    textInput = textInput.replace(/>/g, '&gt;');
+    console.log(textInput);
+    const output = ` <pre><code>
+        ${textInput} </code></pre>`
+    return output;
+}
+
