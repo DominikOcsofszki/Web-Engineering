@@ -1,65 +1,86 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@keyframes example {
+  0%   {background-color:red;}
+ 50% {transform: rotate(180deg);transform: translateX(250%);}
+ 100% {transform: rotate(360deg);transform: translateX(500%);}
+}
+#logo-svg {
+    opacity: 1;
+    /* z-index: -1; */
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    /* transform:  */
+    left: 0;
+    top: 70px;
+    transform: translateX(500%);
+    transform: scale(1.5);
+    /* Change translateY to translateX */
+    transition: opacity 1.3s ease-in-out, transform 1.3s ease-in-out;
+      /* animation-name: example; */
+  animation-duration: 4s;
 }
 
 .sidenav {
-  height: 100%;
-  width: 250px; 
-  position: fixed;
-  z-index: 1; 
-  top: 0; 
-  left: 0;
-  background-color: #111; 
-  overflow-x: hidden; 
-  padding-top: 20px;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
 }
 
 .sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #333;
-  /* color: #818181; */
-  display: block;
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #333;
+    /* color: #818181; */
+    display: block;
 }
 
 .sidenav a:hover {
-  color: white;
-  transform: scale(1.2);
-  transition: transform .5s; 
-  padding-left:50px
-
-
+    color: white;
+    /* transform: scale(1.2); */
+    /* transition: transform .5s; */
+    /* padding-left: 50px */
 }
+
+/* .sidenav .submenu { */
+/*     /* padding-left: 150; */ */
+/* } */
 
 .sidenav .submenu {
-  /* padding-left: 150; */
+    display: none;
 }
 
-.sidenav .submenu {
-  display: none;
-}
-
-.sidenav a:hover + .submenu,
+.sidenav a:hover+.submenu,
 .sidenav .submenu:hover {
-  display: block;
+    display: block;
 }
+
 .sidenav .menu li {
-  position: relative;
+    position: relative;
 }
 
 .sidenav .menu li .submenu {
-  display: none;
-  position: absolute;
-  top: 0;
-  padding-left: 100px;
+    display: none;
+    position: absolute;
+    top: 0;
+    padding-left: 100px;
 }
 
 .sidenav .menu li:hover .submenu {
-  display: block;
+    display: block;
 }
+
 /* * { */
 /*     margin: 0; */
 /*     padding: 0; */
@@ -87,7 +108,8 @@
 /* } */
 /**/
 /* .menu li { */
-/*     position: relative; /* Add position relative */ */
+/*     position: relative; /* Add position relative */
+*/
 /**/
 /*     margin-bottom: 10px; */
 /* } */
@@ -95,7 +117,8 @@
 /* .menu li:hover .submenu { */
 /*     display: block; */
 /*     opacity: 1; */
-/*     transform: translateX(100%); /* Change translateY to translateX */ */
+/*     transform: translateX(100%); /* Change translateY to translateX */
+*/
 /*     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; */
 /* } */
 /**/
@@ -111,15 +134,23 @@
 /*     background-color: #333; */
 /*     padding: 10px; */
 /*     top: 0; */
-/*     /*right: -30px; !* Set the desired distance from the parent menu item *!*/ */
-/*     /*right: calc(-1 * (var(--var-biggest-size) + 10px)); !* Set the desired distance from the parent menu item *!*/ */
+/*     /*right: -30px; !* Set the desired distance from the parent menu item *!*/
+*/
+/*     /*right: calc(-1 * (var(--var-biggest-size) + 10px)); !* Set the desired distance from the parent menu item *!*/
+*/
 /* } */
 /**/
-/* /*.submenu li {*/ */
-/* /*    margin-bottom: 0px;*/ */
-/* /*}*/ */
+/* /*.submenu li {*/
+*/
+/* /*    margin-bottom: 0px;*/
+*/
+/* /*}*/
+*/
 /**/
-/* /*.submenu li:last-child {*/ */
-/* /*    margin-bottom: 0;*/ */
-/* /*}*/ */
+/* /*.submenu li:last-child {*/
+*/
+/* /*    margin-bottom: 0;*/
+*/
+/* /*}*/
+*/
 /**/
