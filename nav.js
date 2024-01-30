@@ -39,7 +39,7 @@ function setUpNavFunctions() {
     logo.addEventListener('mouseleave', function() {
         console.log("mouseleave event")
         logo.animate([
-            { transform: 'rotate(0)' },
+            { transform: 'scale(1.5)' },
             { transform: 'rotate(360deg)' }
         ],
             {duration:5000, iterations:10}
@@ -71,10 +71,16 @@ function setUpNavFunctions() {
         links.forEach(link => {
             link.style.opacity = '1';
         });
-        logo.style.opacity = '0.1';
-        logo.style.transform = 'translateX(-1200%);scale(2.0)';
-                // logo.style.transform = "scale(2.0)";
+                logoInsideNav.style.opacity = '1'
 
+        // logo.style.opacity = '0.1';
+        // logo.style.transform = 'translateX(-1200%);scale(2.0)';
+                // logo.style.transform = "scale(2.0)";
+        // logo.animate([
+        //     { transform: 'translateX(-1500px) rotate(0deg) scale(3)' },
+        //     { transform: 'translateX(0) rotate(360deg)' },
+        // ],
+        //     {duration:2000, iterations:1})
 
     });
     // #logo-svg {
@@ -96,6 +102,11 @@ function setUpNavFunctions() {
         logoInsideNav.style.opacity = '0'
         logo.style.opacity = '1';
         logo.style.transform = 'translateX(0%)';
+        logo.animate([
+            { transform: 'translateX(-1500px) rotate(0deg) scale(3)' },
+            { transform: 'translateX(0) rotate(360deg)' },
+        ],
+            {duration:2000, iterations:1})
 
     });
 
