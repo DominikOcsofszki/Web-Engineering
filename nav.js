@@ -1,3 +1,49 @@
+
+// const link = "/Aufgaben/Aufgabe_1/Aufgabe_1.html"
+/**
+ // * @param  {string} link 
+ */
+export function fetchCodeAndShowPerTag(link) {
+    let querySelectorCode;
+    if (link.includes('.css')) {
+         querySelectorCode = 'textarea#css-textarea'
+    } else
+        if (link.includes('.js')) {
+             querySelectorCode = 'textarea#js-textarea'
+        } else {    // link.includes('.html')
+             querySelectorCode = 'textarea#html-textarea'
+        }
+
+            console.log(querySelectorCode)
+    fetch(link)
+        .then(res => res.text())
+        .then(text => {
+            // console.log(text)
+            const transformedCodeText = transformCodeToHTML(text);
+            let oldelem = document.querySelector(querySelectorCode);
+            // let oldelem = document.querySelector("textarea#html-textarea");
+            oldelem.innerHTML = transformedCodeText;
+        })
+}
+
+function transformCodeToHTML(textInput) {
+    // console.log(textInput);
+    textInput = textInput.replace(/&/g, '&amp;');
+    textInput = textInput.replace(/</g, '&lt;');
+    textInput = textInput.replace(/>/g, '&gt;');
+    // console.log(textInput);
+    const output = ` <pre><code>
+        ${textInput} </code></pre>`
+    // return output;
+    return textInput;
+}
+
+// fetchCodeAndShow(link)
+
+
+// const fetchCodeAndShowPerTag = require("/fetchCodeAndShowPerTag.js");
+// import fetchCodeAndShowPerTag  from "fetchCodeAndShowPerTag.js";
+
 function fetchNavHtml() {
     fetch('/nav.html')
         .then(res => res.text())
@@ -30,7 +76,7 @@ function setUpNavFunctions() {
             { transform: 'scale(1.5)' },
             { transform: 'rotate(360deg)' }
         ],
-            {duration:5000, iterations:1}
+            { duration: 5000, iterations: 1 }
 
         )
     })
@@ -60,7 +106,7 @@ function setUpNavFunctions() {
         links.forEach(link => {
             link.style.opacity = '1';
         });
-                logoInsideNav.style.opacity = '1'
+        logoInsideNav.style.opacity = '1'
 
     });
 
@@ -76,7 +122,7 @@ function setUpNavFunctions() {
             { transform: 'translateX(-1500px) rotate(0deg) scale(3)' },
             { transform: 'translateX(0) rotate(360deg)' },
         ],
-            {duration:2000, iterations:1})
+            { duration: 2000, iterations: 1 })
 
     });
 
@@ -259,27 +305,30 @@ function transformCodeToHTML(textInput) {
 function fetchCodeAndShowNew(key) {
     // fetch('/showcode')
     const path = window.location.pathname;
-    fetch(path)
+    const pathShowCode = "/showcode"
+    // fetch(path)
+    fetch(pathShowCode)
         .then(res => res.text())
         // .then(res => res.text())
         .then(htmlText => {
 
+            const path = window.location.pathname;
             const domParser = new DOMParser();
             const doc = domParser.parseFromString(htmlText, "text/html");
             console.log(doc.scripts);
             console.log(doc.html);
             console.log(doc.body);
 
-                 let oldelem = document.querySelector("body");
-                // let newelem = document.createElement("body");
-                // newelem.innerHTML = transformedCodeText;
-                //
-                // oldelem.parentNode.replaceChild(newelem, oldelem);
-                oldelem.parentNode.replaceChild(doc.body, oldelem);
-    document.addEventListener("DOMContentLoaded", function() {
-      // Your JavaScript code here
-      console.log("JavaScript code after body replacement");
-    });
+            let oldelem = document.querySelector("body");
+            // let newelem = document.createElement("body");
+            // newelem.innerHTML = transformedCodeText;
+            //
+            // oldelem.parentNode.replaceChild(newelem, oldelem);
+            oldelem.parentNode.replaceChild(doc.body, oldelem);
+            document.addEventListener("DOMContentLoaded", function() {
+                // Your JavaScript code here
+                console.log("JavaScript code after body replacement");
+            });
             // [...doc.scripts].forEach(eval)
 
             let transformedCodeText;
@@ -305,7 +354,8 @@ function fetchCodeAndShowNew(key) {
             // fetchNavHtml()
             // }
 
-
+            // fetchCodeAndShow(link)
+            fetchCodeAndShowPerTag(path)
             console.log("correct functions")
             // setUpNavFunctions();
         })

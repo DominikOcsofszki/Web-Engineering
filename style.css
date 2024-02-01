@@ -3,6 +3,12 @@ margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+textarea {
+    padding: 10px;
+  width: 50%;
+  height: 90vh;
+  background: #FF90;
+}
 
 iframe {
   display: grid;
@@ -105,12 +111,7 @@ code {
 .sidenav .menu li:hover .submenu {
     display: block;
 }
-textarea {
-    padding: 10px;
-  width: 50%;
-  height: 90vh;
-  background: #FF90;
-}
+
 /* * { */
 /*     margin: 0; */
 /*     padding: 0; */
