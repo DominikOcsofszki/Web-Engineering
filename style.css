@@ -17,7 +17,7 @@ iframe {
   grid-template-rows: auto;
   height: 100vh;
   width: 100vh;
-  color: white;
+  /* color: white; */
     /* width: 10rem; */
 border: none;
 }

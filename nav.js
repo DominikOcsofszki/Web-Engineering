@@ -1,20 +1,16 @@
 
-// const link = "/Aufgaben/Aufgabe_1/Aufgabe_1.html"
-/**
- // * @param  {string} link 
- */
 export function fetchCodeAndShowPerTag(link) {
     let querySelectorCode;
     if (link.includes('.css')) {
-         querySelectorCode = 'textarea#css-textarea'
+        querySelectorCode = 'textarea#css-textarea'
     } else
         if (link.includes('.js')) {
-             querySelectorCode = 'textarea#js-textarea'
+            querySelectorCode = 'textarea#js-textarea'
         } else {    // link.includes('.html')
-             querySelectorCode = 'textarea#html-textarea'
+            querySelectorCode = 'textarea#html-textarea'
         }
 
-            console.log(querySelectorCode)
+    console.log(querySelectorCode)
     fetch(link)
         .then(res => res.text())
         .then(text => {
@@ -231,46 +227,48 @@ function setUpNavFunctions() {
 //     console.log("=================")
 //     return output;
 // }
-function fetchCodeAndShow(key) {
-    // fetch('/showcode')
-    const path = window.location.pathname;
-    fetch(path)
-        .then(res => res.text())
-        // .then(res => res.text())
-        .then(text => {
-            let transformedCodeText;
-            if (key === 'F1') {
-                transformedCodeText = text;
-                let oldelem = document.querySelector("html");
-                let newelem = document.createElement("html");
-                transformedCodeText = transformCodeToHTML(text);
-                newelem.innerHTML = transformedCodeText;
-
-                oldelem.parentNode.replaceChild(newelem, oldelem);
-                // } if (key === 'F2') {
-            } else {
-                transformedCodeText = text;
-                let oldelem = document.querySelector("body");
-                let newelem = document.createElement("body");
-                newelem.innerHTML = transformedCodeText;
-
-                oldelem.parentNode.replaceChild(newelem, oldelem);
-            }
-            // fetchNavHtml()
-            // }
-
-
-            console.log("correct functions")
-            // setUpNavFunctions();
-        })
-}
-
+// TODO just removed
+//
+// function fetchCodeAndShow(key) {
+//     // fetch('/showcode')
+//     const path = window.location.pathname;
+//     fetch(path)
+//         .then(res => res.text())
+//         // .then(res => res.text())
+//         .then(text => {
+//             let transformedCodeText;
+//             if (key === 'F1') {
+//                 transformedCodeText = text;
+//                 let oldelem = document.querySelector("html");
+//                 let newelem = document.createElement("html");
+//                 transformedCodeText = transformCodeToHTML(text);
+//                 newelem.innerHTML = transformedCodeText;
+//
+//                 oldelem.parentNode.replaceChild(newelem, oldelem);
+//                 // } if (key === 'F2') {
+//             } else {
+//                 transformedCodeText = text;
+//                 let oldelem = document.querySelector("body");
+//                 let newelem = document.createElement("body");
+//                 newelem.innerHTML = transformedCodeText;
+//
+//                 oldelem.parentNode.replaceChild(newelem, oldelem);
+//             }
+//             // fetchNavHtml()
+//             // }
+//
+//
+//             console.log("correct functions")
+//             // setUpNavFunctions();
+//         })
+// }
+//
 function transformCodeToHTML(textInput) {
-    console.log(textInput);
+    // console.log(textInput);
     textInput = textInput.replace(/&/g, '&amp;');
     textInput = textInput.replace(/</g, '&lt;');
     textInput = textInput.replace(/>/g, '&gt;');
-    console.log(textInput);
+    // console.log(textInput);
     const above = `
 <!DOCTYPE html>
 <html>
@@ -286,7 +284,7 @@ function transformCodeToHTML(textInput) {
 
 <body>`;
     const end = `    
-    <script id="replace_with_navbar" src="nav.js"></script>
+    <script id="replace_with_navbar" src="/nav.js" type="module" ></script>
 
 </body>
 
@@ -294,19 +292,16 @@ function transformCodeToHTML(textInput) {
 
     const output = `${above} <pre><code>
         ${textInput} </code></pre> ${end}`
-    console.log("=================")
-    console.log("=================")
-    console.log(output)
-    console.log("=================")
-    console.log("=================")
+    // console.log("=================")
+    // console.log("=================")
+    // console.log(output)
+    // console.log("=================")
+    // console.log("=================")
     return output;
 }
 
 function fetchCodeAndShowNew(key) {
-    // fetch('/showcode')
-    const path = window.location.pathname;
     const pathShowCode = "/showcode"
-    // fetch(path)
     fetch(pathShowCode)
         .then(res => res.text())
         // .then(res => res.text())
@@ -315,48 +310,24 @@ function fetchCodeAndShowNew(key) {
             const path = window.location.pathname;
             const domParser = new DOMParser();
             const doc = domParser.parseFromString(htmlText, "text/html");
-            console.log(doc.scripts);
-            console.log(doc.html);
-            console.log(doc.body);
 
             let oldelem = document.querySelector("body");
-            // let newelem = document.createElement("body");
-            // newelem.innerHTML = transformedCodeText;
-            //
-            // oldelem.parentNode.replaceChild(newelem, oldelem);
             oldelem.parentNode.replaceChild(doc.body, oldelem);
-            document.addEventListener("DOMContentLoaded", function() {
-                // Your JavaScript code here
-                console.log("JavaScript code after body replacement");
-            });
-            // [...doc.scripts].forEach(eval)
-
-            let transformedCodeText;
-            // if (key === 'F1') {
-            //     transformedCodeText = text;
-            //     let oldelem = document.querySelector("html");
-            //     let newelem = document.createElement("html");
-            //     transformedCodeText = transformCodeToHTML(text);
-            //     newelem.innerHTML = transformedCodeText;
-            //
-            //     oldelem.parentNode.replaceChild(newelem, oldelem);
-            //     // } if (key === 'F2') {
-            // } else {
-            //     transformedCodeText = doc.body;
-            //     // transformedCodeText = text;
-            //     let oldelem = document.querySelector("body");
-            //     let newelem = document.createElement("body");
-            //     newelem.innerHTML = transformedCodeText;
-            //
-            //     oldelem.parentNode.replaceChild(newelem, oldelem);
-            //     oldelem.parentNode.replaceChild(doc.body, oldelem);
-            // }
-            // fetchNavHtml()
-            // }
-
-            // fetchCodeAndShow(link)
             fetchCodeAndShowPerTag(path)
+            console.log(path)
+            let scripts = doc.getElementsByTagName('script');
+            console.log(scripts)
+            for (let script of scripts) {
+                let scriptElement = document.createElement('script');
+                scriptElement.textContent = script.textContent;
+                document.body.appendChild(scriptElement);
+            }
             console.log("correct functions")
-            // setUpNavFunctions();
         })
+}
+
+function fetchHtmlCssJs(path) {
+    //TODO setup .css .js .html
+    fetchCodeAndShowPerTag(path)
+
 }
