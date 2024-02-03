@@ -17,7 +17,7 @@ function hinzufuegenRedner() {
         alert('Dieser Redner ist bereits in der Liste.');
         return;
     }
-
+stopAllRedner()
     const neuerRedner = {
         name: rednerName,
         zeit: 0,
@@ -45,6 +45,7 @@ function stopAllRedner() {
     redner.forEach((r) => {
         if (r.runningTimer) {
             r.runningTimer = false;
+            // r.zeit = performance.now() - r.startTime;
             r.zeit += performance.now() - r.startTime;
             updateZeitAnzeige(r);
         }
@@ -53,10 +54,24 @@ function stopAllRedner() {
 function startRedner(rednerObj) {
     stopAllRedner();
     rednerObj.startTime = performance.now();
-    rednerObj.runningTimer = true;
+    // rednerObj.runningTimer = true;
+    rednerObj.runningTimer = !rednerObj.runningTimer;
 }
 
 function updateZeitAnzeige(rednerObj) {
     const zeitRednerByName = document.getElementById(`${rednerObj.name}`);
     zeitRednerByName.innerHTML = `${rednerObj.zeit / 1000} s`;
 }
+
+function updateEverySec() {
+    redner.forEach((r) => {
+                if (r.runningTimer) {
+
+            r.zeit += performance.now() - r.startTime;
+            updateZeitAnzeige(r);
+        }
+    });
+}
+    
+
+setInterval(updateEverySec, 1000);
