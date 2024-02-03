@@ -1,10 +1,11 @@
 * {
-margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 textarea {
-    padding: 10px;
+  padding: 10px;
   width: 50%;
   height: 90vh;
   background: #FF90;
@@ -18,32 +19,43 @@ iframe {
   height: 100vh;
   width: 100vh;
   /* color: white; */
-    /* width: 10rem; */
-border: none;
+  /* width: 10rem; */
+  border: none;
 }
+
 @keyframes example {
-  0%   {background-color:red;}
- /* 50% {transform: rotate(180deg);transform: translateX(250%);} */
- 50% {transform: rotate(180deg);}
- 100% {transform: rotate(360deg);}
+  0% {
+    background-color: red;
+  }
+
+  /* 50% {transform: rotate(180deg);transform: translateX(250%);} */
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
+
 #logo-svg {
-    opacity: 0.9;
-    /* z-index: -1; */
-    position: absolute;
-    width: 70px;
-    height: 100px;
-    /* transform:  */
-    right: 0;
-    top: 70px;
-    opacity: 0;
-    /* transform: translateX(-500%); */
-    /* transform: scale(1.5); */
-    /* Change translateY to translateX */
-    /* transition: opacity 1.3s ease-in-out, transform 1.3s ease-in-out; */
-      /* animation-name: example; */
+  opacity: 0.9;
+  /* z-index: -1; */
+  position: absolute;
+  width: 70px;
+  height: 100px;
+  /* transform:  */
+  right: 0;
+  top: 70px;
+  opacity: 0;
+  /* transform: translateX(-500%); */
+  /* transform: scale(1.5); */
+  /* Change translateY to translateX */
+  /* transition: opacity 1.3s ease-in-out, transform 1.3s ease-in-out; */
+  /* animation-name: example; */
   /* animation-duration: 4s; */
 }
+
 pre {
   background-color: #f4f4f4;
   padding: 10px;
@@ -56,60 +68,62 @@ code {
   font-size: 14px;
   color: #333;
 }
+
 .sidenav {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 20px;
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
 }
 
 .sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #333;
-    /* color: #818181; */
-    display: block;
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #333;
+  /* color: #818181; */
+  display: block;
 }
 
 .sidenav a:hover {
-    color: white;
-    /* transform: scale(1.2); */
-    /* transition: transform .5s; */
-    /* padding-left: 50px */
+  color: white;
+  /* transform: scale(1.2); */
+  /* transition: transform .5s; */
+  /* padding-left: 50px */
 }
 
 /* .sidenav .submenu { */
-/*     /* padding-left: 150; */ */
+/*     /* padding-left: 150; */
+*/
 /* } */
 
 .sidenav .submenu {
-    display: none;
+  display: none;
 }
 
 .sidenav a:hover+.submenu,
 .sidenav .submenu:hover {
-    display: block;
+  display: block;
 }
 
 .sidenav .menu li {
-    position: relative;
+  position: relative;
 }
 
 .sidenav .menu li .submenu {
-    display: none;
-    position: absolute;
-    top: 0;
-    padding-left: 100px;
+  display: none;
+  position: absolute;
+  top: 0;
+  padding-left: 100px;
 }
 
 .sidenav .menu li:hover .submenu {
-    display: block;
+  display: block;
 }
 
 /* * { */
@@ -165,4 +179,3 @@ code {
 /*     top: 0; */
 /*     /*right: -30px; !* Set the desired distance from the parent menu item *!*/
 /*     /*right: calc(-1 * (var(--var-biggest-size) + 10px)); !* Set the desired distance from the parent menu item *!*/
-

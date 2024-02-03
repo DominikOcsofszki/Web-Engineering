@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .sidebar {
+            width: 200px;
+            background-color: #f1f1f1;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            overflow-x: hidden;
+        }
+
+        .sidebar a {
+            padding: 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>Navigation</h2>
+        <ul id="navItems">
+        </ul>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', async () => {
+            const navItems = document.getElementById('navItems');
+            navBarGenAllTasks();
+            // const folderPath = '/Users/dominikocsofszki/VSCODE/Web-Engineering/Aufgaben/';
+            // const folderPath = '/Aufgaben/Aufgabe_7/';
+
+            // const folderPath2 = '/Aufgaben/Aufgabe_7/';
+            // const folderPaths = [folderPath, folderPath2];
+            // navBarGenAllTasks().then((arrOfTasks) => {
+            //     arrOfTasks.forEach(folderPath => {
+            //         navBarGen(folderPath);
+            //     });
+            // });
+            // const allFolder = await navBarGenAllTasks();
+            // allFolder.then((arrOfTasks) => {
+            //     arrOfTasks.forEach(folderPath => {
+            //         navBarGen(folderPath);
+            //     });
+            // });
+            // console.log(allFolder);
+
+            // console.log("folderPaths: ");
+            // console.log(folderPaths);
+            // console.log(folderPaths);
+            // // navBarGen(folderPaths);
+            // folderPaths.forEach(folderPath => {
+            //     navBarGen(folderPath);
+            // });
+            // Fetch the list of files in the folder
+            // fetch(folderPath)
+            //     .then(response => response.text())
+            //     .then(data => {
+            //         // Parse the file names from the response
+            //         const fileNames = data.split('\n');
+
+            //         // Create navigation items for each file
+            //         fileNames.forEach(fileName => {
+            //             if (fileName.trim() !== '' && fileName.trim().includes('href')) {
+            //                 const myLink = fileName.trim().split('href="')[1].split('"')[0];
+            //                 const listItem = document.createElement('li');
+            //                 const link = document.createElement('a');
+            //                 link.href = myLink
+            //                 // link.textContent = fileName;
+            //                 link.textContent = myLink;
+            //                 listItem.appendChild(link);
+            //                 navItems.appendChild(listItem);
+            //             }
+            //         });
+            //     })
+
+        });
+
+        function navBarGen(folderPath) {
+            fetch(folderPath)
+                .then(response => response.text())
+                .then(data => {
+                    // Parse the file names from the response
+                    const fileNames = data.split('\n');
+
+                    // Create navigation items for each file
+                    fileNames.forEach(fileName => {
+                        if (fileName.trim() !== '' && fileName.trim().includes('href')) {
+                            const myLink = fileName.trim().split('href="')[1].split('"')[0];
+                            const listItem = document.createElement('li');
+                            const link = document.createElement('a');
+                            link.href = myLink
+                            // link.textContent = fileName;
+                            link.textContent = myLink;
+                            listItem.appendChild(link);
+                            navItems.appendChild(listItem);
+                        }
+                    });
+                })
+
+        }
+        function navBarGenAllTasks() {
+            fetch('/Aufgaben/')
+                .then(response => response.text())
+                .then(data => {
+                    // Parse the file names from the response
+                    const fileNames = data.split('\n');
+                    arrOfTasks = [];
+
+                    // Create navigation items for each file
+                    fileNames.forEach(fileName => {
+                        if (fileName.trim() !== '' && fileName.trim().includes('href')) {
+                            const myLink = fileName.trim().split('href="')[1].split('"')[0];
+                            console.log(myLink);
+                            // const listItem = document.createElement('li');
+                            // const link = document.createElement('a');
+                            // link.href = myLink
+                            // link.textContent = fileName;
+                            // link.textContent = myLink;
+                            // listItem.appendChild(link);
+                            // navItems.appendChild(listItem);
+                            arrOfTasks.push(myLink);
+                        }
+                    });
+                    // console.log(arrOfTasks);
+                    arrOfTasks.forEach(folderPath => {
+                        if (folderPath.includes('Aufgabe')) {
+                            navBarGen(folderPath);
+                        }
+                        // console.log(folderPath);
+                    });
+                    return arrOfTasks;
+                })
+
+        }
+    </script>
+    <!-- <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const navItems = document.getElementById('navItems');
+            // const folderPath = '/Users/dominikocsofszki/VSCODE/Web-Engineering/Aufgaben/';
+            const folderPath = '/Aufgaben/Aufgabe_7/';
+
+            // Fetch the list of files in the folder
+            fetch(folderPath)
+                .then(response => response.text())
+                .then(data => {
+                    // Parse the file names from the response
+                    const fileNames = data.split('\n');
+
+                    // Create navigation items for each file
+                    fileNames.forEach(fileName => {
+                        if (fileName.trim() !== '' && fileName.trim().includes('href')) {
+                            const myLink = fileName.trim().split('href="')[1].split('"')[0];
+                            const listItem = document.createElement('li');
+                            const link = document.createElement('a');
+                            link.href = myLink
+                            // link.textContent = fileName;
+                            link.textContent = myLink;
+                            listItem.appendChild(link);
+                            navItems.appendChild(listItem);
+                        }
+                    });
+                })
+
+        });
+    </script> -->
+</body>
+
+</html>
