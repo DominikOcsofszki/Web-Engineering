@@ -17,7 +17,7 @@ function hinzufuegenRedner() {
         alert('Dieser Redner ist bereits in der Liste.');
         return;
     }
-stopAllRedner()
+    stopAllRedner()
     const neuerRedner = {
         name: rednerName,
         zeit: 0,
@@ -25,33 +25,44 @@ stopAllRedner()
         startTime: performance.now()
     };
 
-    redner.push(neuerRedner);
 
     const rednerEintrag = document.createElement('li');
     rednerEintrag.innerHTML = `
         ${neuerRedner.name}
-        <button class="startStopButton">Start/Stop</button>
-        <span id="${neuerRedner.name}">${neuerRedner.zeit} s</span>
+        <button id="startStopButton">Start</button>
+        <span id="${neuerRedner.name}">0 s</span>
       `;
 
-    const startStopButton = rednerEintrag.querySelector('.startStopButton');
-    startStopButton.addEventListener('click', () => { startRedner(neuerRedner); });
+        // <span id="${neuerRedner.name}">${neuerRedner.zeit} s</span>
+    const startStopButton = rednerEintrag.querySelector('#startStopButton');
+    startStopButton.addEventListener('click', () => { 
+        startOrStopRedner(neuerRedner); 
+        if(startStopButton.textContent === "Start"){
+            startStopButton.textContent ="Stop"
+
+        } else
+        startStopButton.textContent ="Start"
+    });
 
     rednerListe.appendChild(rednerEintrag);
     rednerNameInput.value = '';
+    neuerRedner.startStopButton = startStopButton;
+    redner.push(neuerRedner);
 }
 
 function stopAllRedner() {
+
     redner.forEach((r) => {
         if (r.runningTimer) {
             r.runningTimer = false;
+            startStopButton.textContent = "Start";
             // r.zeit = performance.now() - r.startTime;
-            r.zeit += performance.now() - r.startTime;
+            // r.zeit += performance.now() - r.startTime;
             updateZeitAnzeige(r);
         }
     });
 }
-function startRedner(rednerObj) {
+function startOrStopRedner(rednerObj) {
     stopAllRedner();
     rednerObj.startTime = performance.now();
     // rednerObj.runningTimer = true;
@@ -60,18 +71,32 @@ function startRedner(rednerObj) {
 
 function updateZeitAnzeige(rednerObj) {
     const zeitRednerByName = document.getElementById(`${rednerObj.name}`);
-    zeitRednerByName.innerHTML = `${rednerObj.zeit / 1000} s`;
+    // zeitRednerByName.innerHTML = `${rednerObj.zeit / 1000} s`;
+    zeitRednerByName.innerHTML = `${formatTime(rednerObj.zeit)} `;
 }
 
 function updateEverySec() {
     redner.forEach((r) => {
-                if (r.runningTimer) {
+        if (r.runningTimer) {
 
             r.zeit += performance.now() - r.startTime;
             updateZeitAnzeige(r);
         }
     });
 }
-    
+
 
 setInterval(updateEverySec, 1000);
+
+function formatTime(time) {
+    time = time / 1000;
+    let h = Math.floor(time / 3600);
+    let m = Math.floor((time % 3600) / 60);
+    let s = Math.floor(time % 60);
+    return `${addZeroIfNeeded(h)}:${addZeroIfNeeded(m)}:${addZeroIfNeeded(s)}`;
+}
+
+function addZeroIfNeeded(nr){
+    if(nr < 9) return `0${nr}`;
+    return nr;
+}
