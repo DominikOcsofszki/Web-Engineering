@@ -30,7 +30,7 @@ function hinzufuegenRedner() {
     rednerEintrag.innerHTML = `
         ${neuerRedner.name}
         <button id="startStopButton">Start</button>
-        <span id="${neuerRedner.name}">0 s</span>
+        <span id="${neuerRedner.name}">00:00:00</span>
       `;
 
         // <span id="${neuerRedner.name}">${neuerRedner.zeit} s</span>
