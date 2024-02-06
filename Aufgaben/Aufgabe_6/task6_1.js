@@ -14,11 +14,7 @@ textToCheck.addEventListener('keydown', (event) => {
 // }
 
 function checkText() {
-    let checkagain = _checkKlammern()
-    console.log(checkagain)
-        textToCheck.style.backgroundColor = "green";
-    // if (_checkKlammern()) {
-    if (checkagain) {
+    if (_checkKlammern()) {
         textToCheck.style.backgroundColor = "green";
     } else {
         textToCheck.style.backgroundColor = "red";
