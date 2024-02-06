@@ -3,17 +3,21 @@ export function fetchCodeAndShowPerTag(link) {
     let querySelectorCode;
     if (link.includes('.css')) {
         querySelectorCode = 'textarea#css-textarea'
+        // querySelectorCode = 'code#css-textarea'
     } else
         if (link.includes('.js')) {
             querySelectorCode = 'textarea#js-textarea'
+            // querySelectorCode = 'code#js-textarea'
         } else {    // link.includes('.html')
             querySelectorCode = 'textarea#html-textarea'
+            // querySelectorCode = 'code#html-textarea'
         }
 
     console.log(querySelectorCode)
     fetch(link)
         .then(res => res.text())
         .then(text => {
+            // if(text==='') return
             // console.log(text)
             const transformedCodeText = transformCodeToHTML(text);
             let oldelem = document.querySelector(querySelectorCode);
@@ -314,7 +318,7 @@ function fetchCodeAndShowNew(key) {
             let oldelem = document.querySelector("body");
             oldelem.parentNode.replaceChild(doc.body, oldelem);
             fetchCodeAndShowPerTag(path)
-            console.log(path)
+            // console.log(path)
             let scripts = doc.getElementsByTagName('script');
             console.log(scripts)
             for (let script of scripts) {
