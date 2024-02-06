@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script id="replace_with_navbar" src="/nav.js" type="module"></script>
+
+<div class="codepen">
+  <section class="code">
+    <div class="editor">
+      <header class="editor__header">
+        <h3 class="editor__heading">php</h3>
+        <button>⌄</button>
+      </header>
+      <div class="editor__code">
+        <textarea class="editor__input">
+
+&lt;?php
+$datei = 'reg.txt';
+
+$handle = fopen($datei, 'a');
+if (flock($handle, LOCK_EX)) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $pw = $_POST['pw'];
+
+    $daten = "Name: $name, E-Mail: $email, pw: $pw\n";
+
+    fwrite($handle, $daten);
+
+    flock($handle, LOCK_UN);
+    fclose($handle);
+}
+?&gt;
+
+            
+        </textarea>
+      </div>
+    </div>
+    </div>
+
+  </section>
+
+</div>
+</body>
+
+</html>
