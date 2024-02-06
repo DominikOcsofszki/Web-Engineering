@@ -1,4 +1,6 @@
 
+
+
 export function fetchCodeAndShowPerTag(link) {
     let querySelectorCode;
     if (link.includes('.css')) {
@@ -53,6 +55,7 @@ function fetchNavHtml() {
             newelem.innerHTML = text;
             oldelem.parentNode.replaceChild(newelem, oldelem);
             setUpNavFunctions();
+            addCss() //TODO adding additional CSS
         })
 }
 
@@ -327,7 +330,57 @@ function fetchCodeAndShowNew(key) {
                 document.body.appendChild(scriptElement);
             }
             console.log("correct functions")
+            addCss()
         })
+}
+
+    // addCss()
+function addCss() {// Your CSS as text
+    let styles = `
+
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  // text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: black;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: grey;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  // padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  // text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+`
+    let style = document.createElement('style');
+    style.textContent = styles;
+    document.body.appendChild(style);
 }
 
 function fetchHtmlCssJs(path) {

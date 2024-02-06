@@ -18,8 +18,6 @@ iframe {
   grid-template-rows: auto;
   height: 100vh;
   width: 100vh;
-  /* color: white; */
-  /* width: 10rem; */
   border: none;
 }
 
@@ -28,7 +26,6 @@ iframe {
     background-color: red;
   }
 
-  /* 50% {transform: rotate(180deg);transform: translateX(250%);} */
   50% {
     transform: rotate(180deg);
   }
@@ -40,11 +37,9 @@ iframe {
 
 #logo-svg {
   opacity: 0.9;
-  /* z-index: -1; */
   position: absolute;
   width: 70px;
   height: 100px;
-  /* transform:  */
   right: 0;
   top: 70px;
   opacity: 0;
@@ -86,21 +81,13 @@ code {
   text-decoration: none;
   font-size: 25px;
   color: #333;
-  /* color: #818181; */
   display: block;
 }
 
 .sidenav a:hover {
   color: white;
-  /* transform: scale(1.2); */
-  /* transition: transform .5s; */
-  /* padding-left: 50px */
 }
 
-/* .sidenav .submenu { */
-/*     /* padding-left: 150; */
-*/
-/* } */
 
 .sidenav .submenu {
   display: none;
@@ -126,56 +113,4 @@ code {
   display: block;
 }
 
-/* * { */
-/*     margin: 0; */
-/*     padding: 0; */
-/* } */
-/**/
-/* .sidenav { */
-/*     --var-biggest-size: 100px; */
-/*     position: fixed; */
-/*     top: 0; */
-/*     left: 0; */
-/*     height: 100vh; */
-/*     background-color: #333; */
-/*     padding: 1px; */
-/*     display: flex; */
-/*     flex-direction: column; */
-/*     align-items: flex-start; */
-/*     opacity: 0.95; */
-/* } */
-/**/
-/* .menu { */
-/*     display: flex; */
-/*     flex-direction: column; */
-/*     list-style: none; */
-/*     margin-top: 20px; */
-/* } */
-/**/
-/* .menu li { */
-/*     position: relative; /* Add position relative */
-/**/
-/*     margin-bottom: 10px; */
-/* } */
-/**/
-/* .menu li:hover .submenu { */
-/*     display: block; */
-/*     opacity: 1; */
-/*     transform: translateX(100%); /* Change translateY to translateX */
-/*     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; */
-/* } */
-/**/
-/**/
-/* .menu li a { */
-/*     color: #fff; */
-/*     text-decoration: none; */
-/*     opacity: 1; */
-/* } */
-/**/
-/* .submenu { */
-/*     display: none; */
-/*     background-color: #333; */
-/*     padding: 10px; */
-/*     top: 0; */
-/*     /*right: -30px; !* Set the desired distance from the parent menu item *!*/
-/*     /*right: calc(-1 * (var(--var-biggest-size) + 10px)); !* Set the desired distance from the parent menu item *!*/
+

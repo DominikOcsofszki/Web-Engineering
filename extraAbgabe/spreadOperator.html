@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Dominik Ocsofszki">
+    <meta name="description" content="Web Engineering">
+    <meta name="keywords" content="Web, Engineering">
+    <title>Spread Operator</title>
+</head>
+
+
+<body>
+    <script id="replace_with_navbar" src="/nav.js" type="module"></script>
+    <h1>Spread Operator</h1>
+    <p>
+        The spread operator is a useful feature in JavaScript that allows you to distribute elements of an array or
+        properties of an object elsewhere in your code. This makes it easy to combine, copy, or extend arrays and
+        objects. The spread operator is represented by three dots (...).
+    </p>
+    <h2>Combining Arrays</h2>
+    <pre><code>
+            function calculateMinimum(data: number[]): number {
+            return Math.min(...data);
+            }
+
+            function calculateMaximum(data: number[]): number {
+            return Math.max(...data);
+            }
+        </code></pre>
+    <h2>Copying Arrays</h2>
+    <pre><code>
+            const table = [...document.querySelectorAll("table")].pop();
+            const mapSortValues = [...wordMap].sort((b, a) => a[1] - b[1]);
+
+            const originalArray = [1, 2, 3];
+            const copiedArray = [...originalArray];
+
+            console.log(copiedArray); // Output: [1, 2, 3]
+        </code></pre>
+    <h2>Copying Object Properties</h2>
+    <pre><code>
+            const obj1 = { foo: 'bar' };
+            const obj2 = { ...obj1 };
+
+            console.log(obj2); // Output: { foo: 'bar' }
+        </code></pre>
+    <h2>Extending Objects</h2>
+    <pre><code>
+
+            const f = Object.fromEntries(
+            Object.entries( database )
+            .map(([key, val]) => [key,
+            new Function(...val.params, val.body)]) );
+            console.log( f.add( 3,4 ) );
+            console.log( f.mul( 3,4 ) );
+
+            ----
+            const persons = [
+            {
+            name: 'Kay',
+            vorname: 'Alan',
+            geboren: '17. Mai 1940'
+            },
+            {
+            name: 'Turing',
+            vorname: 'Alan',
+            geboren: '2. Juni 1912'
+            }
+            ];
+            const [ kay, ...remaining ] = persons;
+            console.log( kay ); // { name: 'Kay', vorname: 'Alan', geboren: '17. Mai 1940' }
+            console.log( remaining ); // [ { name: 'Turing', vorname: 'Alan', geboren: '2. Juni 1912' }
+        </code></pre>
+</body>
+
+</html>
+
+
+<!-- https://kaul.inf.h-brs.de/ccm/we/ws23/?ccm-app=home-7-1&ccm-08_functional=slide-38&ccm-07_es=slide-25 -->
