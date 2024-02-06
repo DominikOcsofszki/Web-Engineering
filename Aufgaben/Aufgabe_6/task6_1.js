@@ -14,7 +14,11 @@ textToCheck.addEventListener('keydown', (event) => {
 // }
 
 function checkText() {
-    if (_checkKlammern()) {
+    let checkagain = _checkKlammern()
+    console.log(checkagain)
+        textToCheck.style.backgroundColor = "green";
+    // if (_checkKlammern()) {
+    if (checkagain) {
         textToCheck.style.backgroundColor = "green";
     } else {
         textToCheck.style.backgroundColor = "red";
@@ -25,9 +29,9 @@ const start = arrKlammern.filter((item, index) => index % 2 === 0);
 const end = arrKlammern.filter((item, index) => index % 2 === 1);
 // console.log(start);
 // console.log(end);
-const arr = [];
 
 function _checkKlammern() {
+const arr = [];
     console.log("Inside _check")
     textToCheck.value.split("").forEach((item) => {
         if (start.includes(item)) {
