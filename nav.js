@@ -377,6 +377,23 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+
+@media only screen and (max-width: 600px) {
+  li {
+    display: block;
+  }
+
+.dropdown-content a:hover {background-color: #f1f1f1;
+  color: black;
+}
+  .dropdown-content {
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px -8px 16px 0px rgba(0, 0, 0, 0.2);
+  }
+}
 `
     let style = document.createElement('style');
     style.textContent = styles;
