@@ -1,6 +1,8 @@
 
 
 
+let showCodeIfNotHtmlPerNavBar = true;
+
 export function fetchCodeAndShowPerTag(link) {
     let querySelectorCode;
     if (link.includes('.css')) {
@@ -10,7 +12,7 @@ export function fetchCodeAndShowPerTag(link) {
         if (link.includes('.js')) {
             querySelectorCode = 'textarea#js-textarea'
             // querySelectorCode = 'code#js-textarea'
-        } else {    
+        } else {
             querySelectorCode = 'textarea#html-textarea'
             // querySelectorCode = 'code#html-textarea'
         }
@@ -49,6 +51,7 @@ function fetchNavHtml() {
             oldelem.parentNode.replaceChild(newelem, oldelem);
             setUpNavFunctions();
             addCss() //TODO adding additional CSS
+
         })
 }
 
@@ -87,7 +90,7 @@ function setUpNavFunctions() {
         const keyPressed = event.key.toString(); // "a", "1", "Shift", etc.
         if (keyPressed === 'F1' || keyPressed === 'F2' || keyPressed === 'F3') {
             if (keyPressed === 'F1') {
-                
+
                 fetchPage()
             } else {
                 console.log(`${keyPressed} used to fetchCode`)
@@ -135,6 +138,12 @@ function setUpNavFunctions() {
         console.log(maxWidth)
         return maxWidth;
     }
+    addEventListenerToNavA()
+    const toggleShow = document.querySelector('#toggle-show-if-not-html')
+
+    toggleShow.addEventListener('click', () => {
+        showCodeIfNotHtmlPerNavBar = !showCodeIfNotHtmlPerNavBar;
+    })
 
 }
 
@@ -260,6 +269,9 @@ iframe {
   width: 100vh;
   border: none;
 }
+body{
+    margin:5px
+}
 `
     let style = document.createElement('style');
     style.textContent = styles;
@@ -283,4 +295,39 @@ function fetchHtmlCssJs(path) {
         fetchCodeAndShowPerTag(pathJs)
         fetchCodeAndShowPerTag(pathCss)
     }
+}
+function addEventListenerToNavA() {
+
+    const allClassesOfADropdown = document.getElementsByClassName("check-css-jss")
+
+    console.log();
+    [...allClassesOfADropdown].forEach((link) => {
+        link.addEventListener('click', function(event) {
+            const href = link.getAttribute('href');
+
+            if (showCodeIfNotHtmlPerNavBar && href.endsWith('.js') || href.endsWith('.css')) {
+                event.preventDefault();
+                const linkFetch = link.href
+                linkFetch.replace(".css", ".html")
+                const pathFolder = "/" + linkFetch.split('/').slice(3, 6).join('/');
+                fetchCodeIfNotHtml(pathFolder)
+            }
+        });
+    })
+
+}
+
+function fetchCodeIfNotHtml(pathFromCssJs) {
+    const pathShowCode = "/showcode"
+    fetch(pathShowCode)
+        .then(res => res.text())
+        .then(htmlText => {
+            const domParser = new DOMParser();
+            const doc = domParser.parseFromString(htmlText, "text/html");
+            let oldelem = document.querySelector("body");
+            oldelem.parentNode.replaceChild(doc.body, oldelem);
+            fetchHtmlCssJs(pathFromCssJs)
+            addCss()
+            fetchNavHtml();
+        })
 }
