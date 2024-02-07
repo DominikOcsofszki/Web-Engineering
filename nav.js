@@ -10,7 +10,7 @@ export function fetchCodeAndShowPerTag(link) {
         if (link.includes('.js')) {
             querySelectorCode = 'textarea#js-textarea'
             // querySelectorCode = 'code#js-textarea'
-        } else {    // link.includes('.html')
+        } else {    
             querySelectorCode = 'textarea#html-textarea'
             // querySelectorCode = 'code#html-textarea'
         }
@@ -38,12 +38,6 @@ function transformCodeToHTML(textInput) {
     // return output;
     return textInput;
 }
-
-// fetchCodeAndShow(link)
-
-
-// const fetchCodeAndShowPerTag = require("/fetchCodeAndShowPerTag.js");
-// import fetchCodeAndShowPerTag  from "fetchCodeAndShowPerTag.js";
 
 function fetchNavHtml() {
     fetch('/nav.html')
@@ -143,44 +137,7 @@ function setUpNavFunctions() {
     }
 
 }
-// function transformCodeToHTML(textInput) {
-//     // console.log(textInput);
-//     textInput = textInput.replace(/&/g, '&amp;');
-//     textInput = textInput.replace(/</g, '&lt;');
-//     textInput = textInput.replace(/>/g, '&gt;');
-//     return textInput;
-//     //TODO since shown inside textfield no more need for 
-//     // console.log(textInput);
-//     const above = `
-// <!DOCTYPE html>
-// <html>
-//
-// <head>
-//     <meta charset="utf-8">
-//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-//     <meta name="author" content="Dominik Ocsofszki">
-//     <meta name="description" content="Web Engineering">
-//     <meta name="keywords" content="Web, Engineering">
-//     <title>Web Engineering</title>
-// </head>
-//
-// <body>`;
-//     const end = `    
-//     <script id="replace_with_navbar" src="/nav.js" type="module" ></script>
-//
-// </body>
-//
-// </html>`
-//
-//     const output = `${above} <pre><code>
-//         ${textInput} </code></pre> ${end}`
-//     // console.log("=================")
-//     // console.log("=================")
-//     // console.log(output)
-//     // console.log("=================")
-//     // console.log("=================")
-//     return output;
-// }
+
 function fetchPage() {
     const path = window.location.pathname;
     fetch(path)

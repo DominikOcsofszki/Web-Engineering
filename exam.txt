@@ -1,0 +1,46 @@
+
+- HTML (0/5)
+U1 A7: HTML-Wireframe (0/5) [x]
+
+- CSS (0/5)
+U2 A4: Wireframe mit HTML und CSS (0/5) [x...]
+
+- Responsive Web Design (0/20)
+Homepage: Media Queries (0/5) [x]
+Homepage: Flexbox (0/5) [x]
+Homepage: Grid (0/5) [x]
+Homepage: RWD-Gesamteindruck (0/5) []
+
+- JavaScript: DOM (0/15)
+U5 A2: Rednerliste (0/5) [x]
+Homepage: DOM-Selektion (0/5) [x]
+Homepage: DOM-Manipulation (0/5) [x]
+
+- JavaScript: ES6 (0/10)
+Homepage: Module (0/5) [x]
+Homepage: Template Strings (0/5) [x]
+
+- JavaScript: Funktionale Programmierung (0/15)
+U7 A2: Textanalyse mit filter-map-reduce (0/5) [x]
+Homepage: Arrow Functions (0/5) [x]
+Homepage: Kurzer Erklärartikel zu „Spread“-Operator mit Beispiel (0/5) [x]
+
+- JavaScript: Asynchrones JS (0/15)
+U8 A1: Promises (0/5) [x]
+U8 A2: async/await (0/5) [x]
+Homepage: fetch-API (0/5) [x]
+
+- SVG (0/10)
+- U9 A3: Interaktive SVG Grafik (0/5) [x...]
+Homepage: Kurze Demonstration von translate, rotate und scale (0/5) [x]
+
+- Homepage (0/10)
+Solution-Navigator (0/5) [x]
+Gesamteindruck (0/5) []
+
+- Video (0/15) [x]
+Inhalt (0/10) []
+Präsentation (0/5) [x]
+
+Gesamt: 0/120P
+Note: 0,0
