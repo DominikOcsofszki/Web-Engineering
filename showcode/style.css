@@ -1,8 +1,9 @@
- #html-textarea {
+ #html-textarea, #css-textarea, #js-textarea {
      height: 85vh;
      width: 100vh;
 
      background-color: #f4f4f4;
+     background-color: #FEF9E7;
      padding: 10px;
      border-radius: 5px;
      overflow-x: auto;
@@ -14,11 +15,12 @@
 
  body {
      background-color: lightgreen;
-     background-color: #FEF9E7;
+     /* background-color: #FEF9E7; */
+     background-color: white;
  }
 
  @media screen and (max-width: 800px) {
-     #html-textarea {
+ #html-textarea, #css-textarea, #js-textarea {
          width: 65vh;
      }
 
