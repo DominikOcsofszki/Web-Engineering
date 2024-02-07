@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Dominik Ocsofszki">
@@ -15,24 +15,14 @@
     <script id="replace_with_navbar" src="/nav.js" type="module"></script>
     <h1>Spread Operator</h1>
     <p>
-        The spread operator is a useful feature in JavaScript that allows you to distribute elements of an array or
-        properties of an object elsewhere in your code. This makes it easy to combine, copy, or extend arrays and
+        The spread operator is a useful feature in JavaScript that allows you to distribute elements of an array. This
+        makes it easy to combine, copy, or extend arrays and
         objects. The spread operator is represented by three dots (...).
     </p>
-    <h2>Combining Arrays</h2>
-    <pre><code>
-            function calculateMinimum(data: number[]): number {
-            return Math.min(...data);
-            }
 
-            function calculateMaximum(data: number[]): number {
-            return Math.max(...data);
-            }
-        </code></pre>
     <h2>Copying Arrays</h2>
     <pre><code>
-            const table = [...document.querySelectorAll("table")].pop();
-            const mapSortValues = [...wordMap].sort((b, a) => a[1] - b[1]);
+
 
             const originalArray = [1, 2, 3];
             const copiedArray = [...originalArray];
@@ -41,6 +31,8 @@
         </code></pre>
     <h2>Copying Object Properties</h2>
     <pre><code>
+            const table = [...document.querySelectorAll("table")].pop();
+            const mapSortValues = [...wordMap].sort((b, a) => a[1] - b[1]);
             const obj1 = { foo: 'bar' };
             const obj2 = { ...obj1 };
 
@@ -48,6 +40,13 @@
         </code></pre>
     <h2>Extending Objects</h2>
     <pre><code>
+            function calculateMinimum(data: number[]): number {
+            return Math.min(...data);
+            }
+
+            function calculateMaximum(data: number[]): number {
+            return Math.max(...data);
+            }
 
             const f = Object.fromEntries(
             Object.entries( database )

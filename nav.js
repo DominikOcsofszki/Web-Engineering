@@ -144,11 +144,11 @@ function setUpNavFunctions() {
         return maxWidth;
     }
     addEventListenerToNavA()
-    const toggleShow = document.querySelector('#toggle-show-if-not-html')
-
-    toggleShow.addEventListener('click', () => {
-        showCodeIfNotHtmlPerNavBar = !showCodeIfNotHtmlPerNavBar;
-    })
+    // const toggleShow = document.querySelector('#toggle-show-if-not-html')
+    //
+    // toggleShow.addEventListener('click', () => {
+    //     showCodeIfNotHtmlPerNavBar = !showCodeIfNotHtmlPerNavBar;
+    // })
 
 }
 
