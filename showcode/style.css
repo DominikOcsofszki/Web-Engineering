@@ -1,9 +1,25 @@
- textarea html-textarea {
+ #html-textarea {
+     height: 85vh;
+     width: 100vh;
 
- color: blue;
-background: black;
+     background-color: #f4f4f4;
+     padding: 10px;
+     border-radius: 5px;
+     overflow-x: auto;
+
+     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+     font-size: 14px;
+     color: #333;
  }
- h3 {
-     background: black;
-     color: blue;
+
+ body {
+     background-color: lightgreen;
+     background-color: #FEF9E7;
+ }
+
+ @media screen and (max-width: 800px) {
+     #html-textarea {
+         width: 65vh;
+     }
+
  }

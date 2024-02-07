@@ -2,7 +2,6 @@ function performTopologicalSort() {
     const inputField = document.getElementById('inputField');
     const outputDiv = document.getElementById('output');
 
-    // Parse input relationships
     const inputLines = inputField.value.split('\n');
     const relationships = [];
 
@@ -11,13 +10,12 @@ function performTopologicalSort() {
         relationships.push({ dependency: dependency.trim(), task: task.trim() });
     }
 
-    // Perform topological sort
     const sortedTasks = topologicalSort(relationships);
 
-    // Display sorted tasks
     outputDiv.textContent = `Topologische Sortierung: ${sortedTasks.join(' -> ')}`;
 }
 
+//www
 function topologicalSort(relationships) {
     const graph = createGraph(relationships);
     const visited = new Set();
