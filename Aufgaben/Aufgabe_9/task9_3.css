@@ -26,3 +26,8 @@
     top: 0;
     left: 0;
 }
+.draw{
+    position: absolute;
+    z-index: 1;
+    color: black;
+}
