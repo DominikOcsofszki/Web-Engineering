@@ -10,48 +10,19 @@ const x7 = document.getElementById("x7");
 const x8 = document.getElementById("x8");
 const x9 = document.getElementById("x9");
 let count = 0;
-// function calcAddX(f) {
-//     var textElement = document.createElementNS('http://www.w3.org/2000/svg', 'text'); // Create a new <text> element
-// textElement.setAttribute('x', '100'); // Set the x-coordinate of the text position
-// textElement.setAttribute('y', ''); // Set the y-coordinate of the text position
-// textElement.style.fill = "red"
-// textElement.textContent = 'X'; // Set the text content
-// board.appendChild(textElement);
-//     // console.log(f.getAttribute("x"))
-//     const x = f.getAttribute("x")
-//     const y = f.getAttribute("y")
-//     console.log(x, y)
-//     const svgX = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-//     svgX.classList.add("draw");
-//     svgX.setAttribute("width", "300");
-//     svgX.setAttribute("height", "300");
-//     // svgX.setAttribute("viewBox", "0 0 100 100");
-//     svgX.setAttribute("viewBox", "0 0 300 300");
-//     svgX.innerHTML = `
-//         <line x1="${x}" y1="${y}" x2="${x + 100}" y2="${y + 100}" stroke="red" stroke-width="5" />
-//         <line x1="${x + 100}" y1="${y}" x2="${x}" y2="${y + 100}" stroke="red" stroke-width="5" />
-//         `;
-//     //           svgX.innerHTML = `
-//     //   <line x1="0" y1="0" x2="100" y2="100" stroke="red" stroke-width="5" />
-//     //   <line x1="100" y1="0" x2="0" y2="100" stroke="red" stroke-width="5" />
-//     // `;
-//
-//     board.appendChild(svgX)
-// }
+
 function calcAddX(f) {
-    var textElement = document.createElementNS('http://www.w3.org/2000/svg', 'text'); // Create a new <text> element
-        const x = f.getAttribute("x")
+    var textElement = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    const x = f.getAttribute("x")
     const y = f.getAttribute("y")
     console.log(x)
     console.log(x)
-// textElement.setAttribute('x', '100'); // Set the x-coordinate of the text position
-// textElement.setAttribute('y', '100'); // Set the y-coordinate of the text position
-textElement.setAttribute('x', x); // Set the x-coordinate of the text position
-textElement.setAttribute('y', y); // Set the y-coordinate of the text position
-textElement.style.fill = "red"
-textElement.style.fontSize = "100"
-textElement.textContent = 'X'; // Set the text content
-board.appendChild(textElement);
+    textElement.setAttribute('x', x); 
+    textElement.setAttribute('y', y); 
+    textElement.style.fill = "red"
+    textElement.style.fontSize = "100"
+    textElement.textContent = 'X'; 
+    board.appendChild(textElement);
 }
 
 let gameOver = false;
@@ -67,8 +38,8 @@ function checkForWin() {
         const [a, b, c] = pattern;
         if (arr[a] !== undefined && arr[a] === arr[b] && arr[b] === arr[c]) {
             // alert("Player " + arr[a] + " wins!");
-            if(arr[a] === 'X')  alert("Player: red wins!");
-            if(arr[a] === 'O')  alert("Player: green wins!");
+            if (arr[a] === 'X') alert("Player: red wins!");
+            if (arr[a] === 'O') alert("Player: green wins!");
             return true;
         }
     }
@@ -111,7 +82,7 @@ function checkIfWins(nr, XorO) {
     arr[nrMinus] = XorO;
     console.log(arr)
     gameOver = checkForWin();
-    if(++countEntries > 8) {
+    if (++countEntries > 8) {
         alert("game-over - no winner")
     }
 }
