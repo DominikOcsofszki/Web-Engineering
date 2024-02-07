@@ -19,9 +19,8 @@ export function fetchCodeAndShowPerTag(link) {
     fetch(link)
         .then(res => res.text())
         .then(text => {
-            // if(text==='') return
-            // console.log(text)
             const transformedCodeText = transformCodeToHTML(text);
+            // const transformedCodeText = text;
             let oldelem = document.querySelector(querySelectorCode);
             // let oldelem = document.querySelector("textarea#html-textarea");
             oldelem.innerHTML = transformedCodeText;
@@ -93,12 +92,14 @@ function setUpNavFunctions() {
     window.addEventListener('keydown', function(event) {
         const keyPressed = event.key.toString(); // "a", "1", "Shift", etc.
         if (keyPressed === 'F1' || keyPressed === 'F2' || keyPressed === 'F3') {
-            console.log(`${keyPressed} used to fetchCode`)
-            fetchCodeAndShow(keyPressed);
+            if (keyPressed === 'F1') {
+                
+                fetchPage()
+            } else {
+                console.log(`${keyPressed} used to fetchCode`)
+                fetchCodeAndShowNew(keyPressed);
+            }
         }
-        // console.log(key)
-        // console.log("keydown")
-        // if(e.shiftKey ===
     })
 
     navbar.style.transition = 'width 0.2s ease-in-out';
@@ -142,70 +143,16 @@ function setUpNavFunctions() {
     }
 
 }
-// function fetchCodeAndShow(key) {
-//     // fetch('/showcode')
-//     const path = window.location.pathname;
-//     fetch(path)
-//         .then(res => res.text())
-//         .then(html => {
-//             const parser = new DOMParser();
-//             const doc = parser.parseFromString(html, "text/html");
-//             return doc.body
-//         })
-//         .then(text => {
-//             console.log("more mroermoeromeoreoroeoon");
-//             console.log(text);
-//             console.log("more mroermoeromeoreoroeoon");
-//             let transformedCodeText;
-//             if (key === 'F1') {
-//                 transformedCodeText = text;
-//             } if (key === 'F2') {
-//                 transformedCodeText = transformCodeToHTML(text);
-//             } else {
-//                 transformedCodeText = text;
-//             }
-//             let oldelem = document.querySelector("body");
-//             let newelem = document.createElement("body");
-//             newelem.innerHTML = transformedCodeText;
-//
-//             oldelem.parentNode.replaceChild(newelem, oldelem);
-//
-//             // setUpNavFunctions();
-//         })
-// }
-// function fetchCodeAndShowOld(key) {
-//     // fetch('/showcode')
-//     const path = window.location.pathname;
-//     fetch(path)
-//         .then(res => res.text())
-//         // .then(res => res.text())
-//         .then(text => {
-//             let transformedCodeText;
-//             if (key === 'F1') {
-//                 transformedCodeText = text;
-//             } if (key === 'F2') {
-//                 transformedCodeText = transformCodeToHTML(text);
-//             } else {
-//                 transformedCodeText = text;
-//             }
-//             let oldelem = document.querySelector("body");
-//             let newelem = document.createElement("body");
-//             newelem.innerHTML = transformedCodeText;
-//
-//             oldelem.parentNode.replaceChild(newelem, oldelem);
-//
-//             // setUpNavFunctions();
-//         })
-// }
-//
 // function transformCodeToHTML(textInput) {
-//     console.log(textInput);
+//     // console.log(textInput);
 //     textInput = textInput.replace(/&/g, '&amp;');
 //     textInput = textInput.replace(/</g, '&lt;');
 //     textInput = textInput.replace(/>/g, '&gt;');
-//     console.log(textInput);
+//     return textInput;
+//     //TODO since shown inside textfield no more need for 
+//     // console.log(textInput);
 //     const above = `
-//         <!DOCTYPE html>
+// <!DOCTYPE html>
 // <html>
 //
 // <head>
@@ -219,7 +166,7 @@ function setUpNavFunctions() {
 //
 // <body>`;
 //     const end = `    
-//     <script id="replace_with_navbar" src="nav.js"></script>
+//     <script id="replace_with_navbar" src="/nav.js" type="module" ></script>
 //
 // </body>
 //
@@ -227,87 +174,38 @@ function setUpNavFunctions() {
 //
 //     const output = `${above} <pre><code>
 //         ${textInput} </code></pre> ${end}`
-//     console.log("=================")
-//     console.log("=================")
-//     console.log(output)
-//     console.log("=================")
-//     console.log("=================")
+//     // console.log("=================")
+//     // console.log("=================")
+//     // console.log(output)
+//     // console.log("=================")
+//     // console.log("=================")
 //     return output;
 // }
-// TODO just removed
-//
-// function fetchCodeAndShow(key) {
-//     // fetch('/showcode')
-//     const path = window.location.pathname;
-//     fetch(path)
-//         .then(res => res.text())
-//         // .then(res => res.text())
-//         .then(text => {
-//             let transformedCodeText;
-//             if (key === 'F1') {
-//                 transformedCodeText = text;
-//                 let oldelem = document.querySelector("html");
-//                 let newelem = document.createElement("html");
-//                 transformedCodeText = transformCodeToHTML(text);
-//                 newelem.innerHTML = transformedCodeText;
-//
-//                 oldelem.parentNode.replaceChild(newelem, oldelem);
-//                 // } if (key === 'F2') {
-//             } else {
-//                 transformedCodeText = text;
-//                 let oldelem = document.querySelector("body");
-//                 let newelem = document.createElement("body");
-//                 newelem.innerHTML = transformedCodeText;
-//
-//                 oldelem.parentNode.replaceChild(newelem, oldelem);
-//             }
-//             // fetchNavHtml()
-//             // }
-//
-//
-//             console.log("correct functions")
-//             // setUpNavFunctions();
-//         })
-// }
-//
-function transformCodeToHTML(textInput) {
-    // console.log(textInput);
-    textInput = textInput.replace(/&/g, '&amp;');
-    textInput = textInput.replace(/</g, '&lt;');
-    textInput = textInput.replace(/>/g, '&gt;');
-    // console.log(textInput);
-    const above = `
-<!DOCTYPE html>
-<html>
+function fetchPage() {
+    const path = window.location.pathname;
+    fetch(path)
+        .then(res => res.text())
+        .then(htmlText => {
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Dominik Ocsofszki">
-    <meta name="description" content="Web Engineering">
-    <meta name="keywords" content="Web, Engineering">
-    <title>Web Engineering</title>
-</head>
+            // const path = window.location.pathname;
+            const domParser = new DOMParser();
+            const doc = domParser.parseFromString(htmlText, "text/html");
 
-<body>`;
-    const end = `    
-    <script id="replace_with_navbar" src="/nav.js" type="module" ></script>
-
-</body>
-
-</html>`
-
-    const output = `${above} <pre><code>
-        ${textInput} </code></pre> ${end}`
-    // console.log("=================")
-    // console.log("=================")
-    // console.log(output)
-    // console.log("=================")
-    // console.log("=================")
-    return output;
+            let oldelem = document.querySelector("body");
+            oldelem.parentNode.replaceChild(doc.body, oldelem);
+            // fetchHtmlCssJs(path) 
+            let scripts = doc.getElementsByTagName('script');
+            console.log(scripts)
+            for (let script of scripts) {
+                let scriptElement = document.createElement('script');
+                scriptElement.textContent = script.textContent;
+                document.body.appendChild(scriptElement);
+            }
+            addCss()
+            fetchNavHtml();
+        })
 }
-
-function fetchCodeAndShowNew(key) {
+function fetchCodeAndShowNew() {
     const pathShowCode = "/showcode"
     fetch(pathShowCode)
         .then(res => res.text())
@@ -320,7 +218,8 @@ function fetchCodeAndShowNew(key) {
 
             let oldelem = document.querySelector("body");
             oldelem.parentNode.replaceChild(doc.body, oldelem);
-            fetchCodeAndShowPerTag(path)
+            // fetchCodeAndShowPerTag(path)
+            fetchHtmlCssJs(path)
             // console.log(path)
             let scripts = doc.getElementsByTagName('script');
             console.log(scripts)
@@ -331,10 +230,11 @@ function fetchCodeAndShowNew(key) {
             }
             console.log("correct functions")
             addCss()
+            fetchNavHtml();
         })
 }
 
-    // addCss()
+// addCss()
 function addCss() {// Your CSS as text
     let styles = `
 
@@ -394,6 +294,15 @@ li.dropdown {
     box-shadow: 0px -8px 16px 0px rgba(0, 0, 0, 0.2);
   }
 }
+iframe {
+  display: grid;
+  grid-template-areas:
+    "iframe";
+  grid-template-rows: auto;
+  height: 100vh;
+  width: 100vh;
+  border: none;
+}
 `
     let style = document.createElement('style');
     style.textContent = styles;
@@ -401,7 +310,20 @@ li.dropdown {
 }
 
 function fetchHtmlCssJs(path) {
-    //TODO setup .css .js .html
-    fetchCodeAndShowPerTag(path)
+    if (path.includes("iframe")) {
+        path = path.replace("_iframe.html", ".html")
+        const pathJs = path.replace('.html', '.js');
+        const pathCss = path.replace('.html', '.css');
+        fetchCodeAndShowPerTag(path)
+        fetchCodeAndShowPerTag(pathJs)
+        fetchCodeAndShowPerTag(pathCss)
 
+
+    } else {
+        const pathJs = path.replace('.html', '.js');
+        const pathCss = path.replace('.html', '.css');
+        fetchCodeAndShowPerTag(path)
+        fetchCodeAndShowPerTag(pathJs)
+        fetchCodeAndShowPerTag(pathCss)
+    }
 }
