@@ -283,8 +283,26 @@ body{
     document.body.appendChild(style);
 }
 
+const arrTasks ={
+    "task1_7" : "Mit welchem HTML-Code (ohne CSS, nur mit HTML-Tags) kann man dieses Wireframe exakt nachbilden? Die beiden Bilder finden Sie z.B. unter TBL und Eich.",
+    "task2_4" : "Mit welchem HTML- und CSS-Code kann man dieses Wireframe exakt nachbilden? Schreiben Sie Ihren CSS-Code direkt in die HTML-Datei.",
+    "task5_2" : 'Implementieren Sie die interaktive Anwendung "Rednerliste mit Zeitmessung" selbstständig in JavaScript durch Nutzung der DOM-API und der Timer-Funktionen. Neue Redner sollen auf Knopfdruck hinzugefügt werden können. Deren Uhr wird dann sofort automatisch gestartet und alle anderen Uhren angehalten. Bei jedem Redner soll die individuelle, gemessene Redezeit sekundengenau angezeigt werden. Für jeden Redner soll es einen eigenen Start-/Stopp-Button geben. Es soll immer nur eine Uhr laufen. Angezeigt werden sollen die bisherigen Summenzeiten aller Redebeiträge der betreffenden Person. Suchen Sie eine möglichst kurze und elegante Lösung. Achten Sie gleichzeitig auf gute Usability: z.B. wenn die Eingabe mit einem Return beendet wird, soll der Klick auf den Button nicht mehr erforderlich sein.',
+    "task7_2" :`7.2 Textanalyse mit filter-map-reduce Besonders prüfungsrelevantHinweise5 Punkte
+Schreiben Sie in JavaScript eine Textanalyse. Ermitteln Sie die häufigsten Begriffe im Text Plagiatsresolution. Filtern Sie dabei alle Stoppworte und HTML-Tags. Reduzieren Sie das Ergebnis auf die 3 häufigsten Begriffe.
+
+Hinweis: Eine größere Stoppwort-Liste finden Sie auch unter github.com/stopwords-iso/stopwords-de.`,    
+    "task7_2_fetch" :`7.2 Textanalyse mit filter-map-reduce Besonders prüfungsrelevantHinweise5 Punkte
+Schreiben Sie in JavaScript eine Textanalyse. Ermitteln Sie die häufigsten Begriffe im Text Plagiatsresolution. Filtern Sie dabei alle Stoppworte und HTML-Tags. Reduzieren Sie das Ergebnis auf die 3 häufigsten Begriffe.
+
+Hinweis: Eine größere Stoppwort-Liste finden Sie auch unter github.com/stopwords-iso/stopwords-de.`,
+    "task8_1":'Erstellen Sie auf Ihrem lokalen Server (localhost) zwei Text-Dateien A.txt und B.txt mit ungefähr gleich vielen Zeilen. Laden Sie mit der fetch-API parallel beide Text-Dateien vom Server. Geben Sie auf einer Webseite den Inhalt beider Dateien zeilenweise aus, wobei der Anfang der Zeile aus A.txt und das Ende aus B.txt stammen soll. Die beiden Dateien sollen also zeilenweise konkateniert werden. Erzielen Sie max. Geschwindigkeit durch maximale Parallelität. Achten Sie gleichzeitig auf Korrektheit. Verwenden Sie dabei ausschließlich die Promise-API ohne async/await.',
+    "task8_2":'Erstellen Sie auf Ihrem lokalen Server (localhost) zwei Text-Dateien A.txt und B.txt mit ungefähr gleich vielen Zeilen. Laden Sie mit der fetch-API parallel beide Text-Dateien vom Server. Geben Sie auf einer Webseite den Inhalt beider Dateien zeilenweise aus, wobei der Anfang der Zeile aus A.txt und das Ende aus B.txt stammen soll. Die beiden Dateien sollen also zeilenweise konkateniert werden. Erzielen Sie max. Geschwindigkeit durch maximale Parallelität. Achten Sie gleichzeitig auf Korrektheit. Verwenden Sie dabei ausschließlich die Promise-API ohne async/await. (8.2)Lösen Sie die Aufgabe mit async/await statt Promise.',
+    "task9_3":`Implementieren Sie das Spiel Tic-Tac-Toe als HTML-Datei mit Inline SVG, CSS und JS.`,
+    
+}
 function fetchHtmlCssJs(path) {
     const getH1 = document.querySelector("#task-name-showcode")
+    const getPTask = document.querySelector("#aufgaben-stellung")
     console.log(getH1)
     if (path.includes("iframe")) {
         path = path.replace("_iframe.html", ".html")
@@ -305,8 +323,12 @@ function fetchHtmlCssJs(path) {
     const newText =  path.split('/').slice(2, 4).join("/");
 
     const newText2 = newText.replace("/"," ").replace("_"," ")
+    const getTask = path.split('/').slice(-1)
+    const getTaskNoEnd = getTask[0].split('.').slice(0)[0] +""
+    console.log("....." +getTaskNoEnd)
 
     getH1.innerHTML = newText2;
+    getPTask.innerHTML = arrTasks[getTaskNoEnd]; 
 }
 function addEventListenerToNavA() {
 
