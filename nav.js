@@ -26,7 +26,12 @@ export function fetchCodeAndShowPerTag(link) {
             let oldelem = document.querySelector(querySelectorCode);
             // let oldelem = document.querySelector("textarea#html-textarea");
             oldelem.innerHTML = transformedCodeText;
+            ifFetchEmpty(oldelem)
         })
+}
+function ifFetchEmpty(querySelectorCode) {
+   querySelectorCode.style.height= "85vh";
+
 }
 
 function transformCodeToHTML(textInput) {
@@ -279,6 +284,8 @@ body{
 }
 
 function fetchHtmlCssJs(path) {
+    const getH1 = document.querySelector("#task-name-showcode")
+    console.log(getH1)
     if (path.includes("iframe")) {
         path = path.replace("_iframe.html", ".html")
         const pathJs = path.replace('.html', '.js');
@@ -295,6 +302,11 @@ function fetchHtmlCssJs(path) {
         fetchCodeAndShowPerTag(pathJs)
         fetchCodeAndShowPerTag(pathCss)
     }
+    const newText =  path.split('/').slice(2, 4).join("/");
+
+    const newText2 = newText.replace("/"," ").replace("_"," ")
+
+    getH1.innerHTML = newText2;
 }
 function addEventListenerToNavA() {
 

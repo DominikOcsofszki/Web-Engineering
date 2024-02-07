@@ -1,5 +1,6 @@
  #html-textarea, #css-textarea, #js-textarea {
-     height: 85vh;
+     /* height: 85vh; */
+     height: 5vh; /* moved into nav.js */
      width: 100vh;
 
      background-color: #f4f4f4;
